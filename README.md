@@ -1,0 +1,58 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# mirage <img src="man/figures/logo.png" align="right" height="120" />
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/mirage)](https://CRAN.R-project.org/package=mirage)
+[![R-CMD-check](https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
+The goal of mirage is to insert displays into ‘Microsoft PowerPoint’
+documents at specific locations within slides.
+
+Users can uniquely identify both where and what to add to the PowerPoint
+document, create new slides, or update old ones.
+
+## Installation
+
+You can install the development version of {mirage} like so:
+
+``` r
+pak::pak("GSK-Biostatistics/mirage")
+```
+
+## Example
+
+``` r
+library(mirage)
+
+# empty presentation style
+pptx <- example_pptx()
+
+# information about available placeholders from the layouts
+list_placeholders(pptx, layout = "Comparison")
+
+# adding content to new slide
+pptx <- pptx |> 
+  add_slide(
+    layout = "Comparison",
+    content("Title Text"                , ph = ph_title()), 
+    content("Some additional information", ph = ph_subtitle()), 
+    content(list(
+           "Bullet 1",
+           list("Sub-Bullet 1","Sub-Bullet 2"),
+           "Bullet 2",
+           list("Sub-Bullet 3","Sub-Bullet 4")
+           ), ph = ph_body_left()),
+    content(polish::as_file(
+           system.file("man/figures/logo.png", package = "mirage")
+           ), ph = ph_body_right())
+  )
+
+save_pptx(pptx, "/my/output/location/presentation.pptx")
+```

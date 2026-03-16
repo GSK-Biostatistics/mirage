@@ -1,0 +1,42 @@
+Package: mirage
+Title: Add vision to PowerPoint Presentations
+Version: 0.3.0
+Authors@R: c(
+      person("Ellis", "Hughes", email = "ellis.h.hughes@gsk.com", role = c("aut", "cre")), 
+      person("Shannon", "Haughton", email = "shannon.l.haughton@gsk.com", role = "aut"),
+      person("Romain", "François", email = "romain@tada.science", role = "aut"), 
+      person("GlaxoSmithKline Research & Development Limited", role = c("cph", "fnd"))
+    )
+Description: Insert displays into 'Microsoft PowerPoint' documents at specific 
+    locations in slides. Add new slides or update previous slides with displays,
+    pointing to specific placeholders or create new ones.
+License: Apache License (>= 2)
+Depends:
+    R (>= 4.1.0),
+    polish (>= 0.2.0)
+Imports:
+    rlang,
+    dplyr,
+    officer (>= 0.6.7),
+    purrr,
+    tibble,
+    xml2,
+    cli,
+    glue,
+    ggplot2,
+    htmltools,
+    shiny
+Suggests: 
+    testthat (>= 3.0.0),
+    rmarkdown,
+    webshot2,
+    knitr, 
+    flextable, 
+    withr
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Remotes:
+  GSK-Biostatistics/polish
+VignetteBuilder: knitr

@@ -1,0 +1,116 @@
+---
+title: "Table Styling"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Table Styling}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mirage)
+library(dplyr)
+
+pptx <- example_pptx()
+
+```
+
+One of the many benefits of working with mirage, is that you have the ability to quickly add tables to your slides. However, some presentations require more than adding them as am basic table, but apply styling as defined in your presentation.
+
+This too can be easily done via mirage by using the "table_style" argument when adding the content.
+
+```{r, eval = FALSE}
+
+pptx <- pptx |> 
+  add_slide(
+    content(mtcars, table_style = list(style = "named table style", options = c("Banded Columns", "Banded Rows","First Column","Header Row","Last Column","Total Row"))
+  )
+```
+
+The table_style argument must be a named list, with elements for "style" and "options". `style` must one of the named table styles that already exists in the PowerPoint, and will override styling that may exist for the table already. `options` define some optional settings that are from the selected style.
+
+- Banded Columns
+- Banded Rows
+- First Column
+- Header Row
+- Last Column
+- Total Row
+
+## Available Table styles
+
+To get the list of available table styles, use the `get_table_styles()` function.
+
+```{r}
+
+get_table_styles(pptx)
+
+```
+
+## Defining A New Table Style
+
+Users also have the option of defining their own table styles as well. This is done via the `add_table_style()` function, which accepts a pptx_container, and the results from `new_table_style()`. 
+
+`new_table_style()` has many arguments that lets users define information about the table, such as 
+default text color, cell background color, border colors, border styles and weight, etc. See the help page (?new_table_style) for all the available options. 
+
+To add a new defined table style in your PowerPoint you do the following:
+
+```{r}
+
+pptx <- pptx |> 
+  add_table_style(
+    table_style = new_table_style(
+      style_name = "NEW Table Style",
+      text_color = "#000000",
+      cell_color = "#ffffff",
+      row_header_cell_color = "#959595",
+      row_total_cell_color = "#E6E6E6",
+      major_border_color = "#f36633"
+      )
+  )
+
+
+```
+
+Once a table style has been added, it can be referenced when adding a table!
+
+```{r}
+
+table_to_style <- airquality |> 
+  head() |> 
+  flextable::flextable()
+
+
+pptx <- pptx |> 
+  add_slide(
+    layout = "Title and Content",
+    content(table_to_style, table_style = list(style = "NEW Table Style", options = c("Header Row")), ph = ph_body())
+  )
+
+
+```
+
+```{r, echo = FALSE}
+
+save_pptx(pptx, file.path(tempdir(),"new_table_style.pptx"))
+
+```
+
+The styled table looks as follows:
+
+![](styled_table_example.PNG)
+
+
+## Conclusion
+
+You can add as many unique table styles as needed, but each table can only have a single style applied.
+
+
+##
