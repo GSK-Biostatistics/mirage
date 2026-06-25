@@ -25,7 +25,11 @@ placeholder object}
 \item{metadata}{named character vector of metadata to store in the
 \code{p:extLst/p:ext/custom:meta/custom:metadata} nodes}
 
-\item{...}{arguments to include when polishing \code{value}}
+\item{...}{Additional arguments forwarded to the \code{\link[polish:polish_content_pptx]{polish::polish_content_pptx()}}
+method for \code{value}'s class. For example, \code{ggplot} objects accept \code{height},
+\code{width}, \code{res}, \code{device}, and \code{scale}; \code{character} objects accept
+\code{font_color}, \code{font_size}, \code{font_style}, and \code{font_typeface}. See
+\code{\link[polish:polish_content_pptx]{polish::polish_content_pptx()}} for the full list per content type.}
 
 \item{group_contents}{boolean indicating if the polished value should be
 shown in the powerpoint as a grouped Sp. The default, and for most cases,
@@ -46,13 +50,31 @@ be added.
 \code{\link[=remove_content]{remove_content()}} on the other hand, lets users specify a placeholder with
 content that should be removed from the slide using the same placeholder
 nomenclature. The placeholder must exist in the slide to be removed.
+
+Any named arguments passed via \code{...} are forwarded to the appropriate
+\code{\link[polish:polish_content_pptx]{polish::polish_content_pptx()}} method when the content is rendered into the
+slide. The available arguments depend on the class of \code{value}.
 }
 \examples{
 
 content("My Title 2", ph = ph_title())
 content(mtcars      , ph = ph_body())
 
+# Pass polishing args for a ggplot (controls rendered dimensions)
+content(
+  ggplot(mtcars, aes(wt, mpg)) + geom_point(),
+  ph = ph_body(),
+  height = 3,
+  width = 5
+)
+
+# Pass polishing args for character content (font styling)
+content("My Title", ph = ph_title(), font_size = 24, font_color = "#C00000")
+
 remove_content(ph = ph_title())
 remove_content(ph = ref_placeholder(label = "An Existing Placeholder"))
-
+}
+\seealso{
+\code{\link[polish:polish_content_pptx]{polish::polish_content_pptx()}} for the full set of polishing
+arguments available per content type.
 }
