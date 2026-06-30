@@ -39,7 +39,7 @@
 #'
 #' # Pass polishing args for a ggplot (controls rendered dimensions)
 #' content(
-#'   ggplot(mtcars, aes(wt, mpg)) + geom_point(),
+#'   ggplot2::ggplot(mtcars, ggplot2::aes(wt, mpg)) + ggplot2::geom_point(),
 #'   ph = ph_body(),
 #'   height = 3,
 #'   width = 5
