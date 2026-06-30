@@ -14,7 +14,7 @@
 #' @param label The placeholder label to select. `ref_placeholder` allows to
 #'   pass a pattern to search with if label_match is set to "match".
 #' @param label_match Use "match" if `label` is a regex pattern, or "exact"
-#'   for exact match
+#'   for exact match. Defaults to "exact".
 #' @param label_from Which placeholder label should be used, the one listed in
 #'   the "slide" or from the "layout". Generally new slides should use "layout",
 #'   while updating a slide may use either. Listing both allows to
@@ -46,6 +46,7 @@
 #'     label = "[Tt]itle",
 #'     type = "title",
 #'     tie_breaker = "top",
+#'     label_match = "match",
 #'     label_from = c("slide","layout"),
 #'     replace = TRUE
 #'     )
@@ -70,7 +71,7 @@
 #' @export
 ref_placeholder <- function(
     label = "",
-    label_match = c("match", "exact"),
+    label_match = c("exact", "match"),
     label_from = c("slide","layout"),
     type = c("body", "title", "ctrTitle", "ftr", "subTitle", "tbl", "chart", "img", "any"),
     tie_breaker = c("largest", "smallest","left", "right", "top", "bottom"),
@@ -260,10 +261,12 @@ get_selection_pane_xfrm <- function(
 }
 
 filter_label <- function(data, label, label_location, label_match, error_call = caller_env()) {
+
   compare <- switch(label_match,
     match = function(x, y) grepl(y, x),
     exact = function(x, y) x == y
   )
+
   var_name <- switch(label_location,
     slide  = "slide_ph_name",
     layout = "layout_ph_name"
