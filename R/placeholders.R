@@ -573,20 +573,19 @@ print.placeholder_tbl <- function(x, ...) {
 
 #' @export
 ggplot.placeholder_tbl <- function(data, ...) {
-  ggplot(
-    as_tibble(data),
-    aes(
+
+  slide_base <- ggplot2::ggplot() +
+    ggplot2::aes(
       xmin = offx,
       ymin = offy,
       xmax = offx + width,
       ymax = offy + height,
       fill = ph_label,
-    )) +
-    geom_rect() +
-    xlim(0, attr(data, "dimensions")$width) +
-    ylim(attr(data, "dimensions")$height, 0) +
-    coord_fixed() +
-    geom_rect(
+    ) +
+    ggplot2::xlim(0, attr(data, "dimensions")$width) +
+    ggplot2::ylim(attr(data, "dimensions")$height, 0) +
+    ggplot2::coord_fixed() +
+    ggplot2::geom_rect(
       data = data.frame(
         offx = 0, width = attr(data, "dimensions")$width,
         offy = 0, height = attr(data, "dimensions")$height
@@ -594,13 +593,33 @@ ggplot.placeholder_tbl <- function(data, ...) {
       fill = NA,
       col = "black"
     ) +
-    theme_void() +
-    theme(
-      plot.title = element_text(hjust = 0.5)
+    ggplot2::theme_void() +
+    ggplot2::theme(
+      plot.title = ggplot2::element_text(hjust = 0.5)
     ) +
-    labs(
+    ggplot2::labs(
       title = attr(data, "description")
     )
+  
+  estimated_area_sorted_data <- data |>
+    mutate(area = width * height) |>
+    arrange(desc(area))
+  
+  ## add placeholders in size order so that the first ones are on top of the others
+   slide_base <- slide_base +
+      ggplot2::geom_rect(
+        data = estimated_area_sorted_data,
+        ggplot2::aes(xmin = offx, xmax = offx + width, ymin = offy, ymax = offy + height, fill = ph_label),
+      ) +
+      ggplot2::geom_text(
+        data = estimated_area_sorted_data,
+        ggplot2::aes(x = offx + width/2, y = offy + height/2, label = ph_label),
+        color = "black",
+        size = 3
+      )
+
+  slide_base
+  
 }
 
 check_valid_layout_or_index <- function(pptx, layout = NULL, index = NULL, error_call = caller_env()) {
