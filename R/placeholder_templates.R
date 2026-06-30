@@ -66,6 +66,7 @@ ph_title <- function(replace = TRUE) {
       label       = "[Tt]itle",
       type        = c("title", "ctrTitle"),
       tie_breaker = "top",
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -88,6 +89,7 @@ ph_subtitle <- function(replace = TRUE) {
       label       = "[Ss]ubtitle",
       type        = "subTitle",
       tie_breaker = "top",
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -110,6 +112,7 @@ ph_body <- function(replace = TRUE) {
       label       = "(([Cc]ontent)|([Tt]ext)) [Pp]laceholder",
       type        = c("body", "img"),
       tie_breaker = "largest",
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -132,6 +135,7 @@ ph_body_left <- function(replace = TRUE) {
       label       = "(([Cc]ontent)|([Tt]ext)|([Tt]able)) [Pp]laceholder",
       type        = c("body", "img"),
       tie_breaker = c("left", "largest", "top"),
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -154,6 +158,7 @@ ph_body_right <- function(replace = TRUE) {
       label       = "(([Cc]ontent)|([Tt]ext)|([Tt]able)) [Pp]laceholder",
       type        = c("body", "img"),
       tie_breaker = c("right", "largest", "top"),
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -176,6 +181,7 @@ ph_footer <- function(replace = TRUE) {
       label       = "(([Tt]ext)|([Ff]ooter)) [Pp]laceholder",
       type        = c("body", "ftr"),
       tie_breaker = "bottom",
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -198,6 +204,7 @@ ph_footer_left <- function(replace = TRUE) {
       label       = "(([Cc]ontent)|([Tt]ext)|([Tt]able)) [Pp]laceholder",
       type        = c("body","ftr"),
       tie_breaker = c("smallest", "left", "bottom"),
+      label_match = "match",
       label_from  = c("layout","slide"),
       replace     = replace
     ),
@@ -220,7 +227,8 @@ ph_footer_right <- function(replace = TRUE) {
       label        = "(([Cc]ontent)|([Tt]ext)|([Tt]able)) [Pp]laceholder",
       type         = c("body","ftr"),
       tie_breaker  = c("smallest", "left", "bottom"),
-      label_from  = c("layout","slide"),
+      label_match  = "match",
+      label_from   = c("layout","slide"),
       replace      = replace
     ),
     new_placeholder(
