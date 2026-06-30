@@ -12,7 +12,7 @@
       ref_placeholder(label = "label", label_match = "foo")
     Condition
       Error in `ref_placeholder()`:
-      ! `label_match` must be one of "match" or "exact", not "foo".
+      ! `label_match` must be one of "exact" or "match", not "foo".
 
 ---
 

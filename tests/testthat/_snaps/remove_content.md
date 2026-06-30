@@ -2,7 +2,7 @@
 
     Code
       pptx <- update_slide(pptx, index = length(pptx), remove_content(ph = ref_placeholder(
-        "placeholder 1")))
+        "placeholder 1", label_match = "match")))
     Message
       > mirage to remove 1 content at slide 4.
       x Failed to get placeholder for content on slide 4.

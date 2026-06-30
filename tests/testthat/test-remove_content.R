@@ -65,7 +65,7 @@ test_that("Add content twice and remove a specific ph", {
     pptx <- pptx |>
       update_slide(
         index = length(pptx),
-        remove_content(ph = ref_placeholder("placeholder 1"))
+        remove_content(ph = ref_placeholder("placeholder 1", label_match = "match"))
       )
   )
 

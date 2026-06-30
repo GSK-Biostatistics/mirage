@@ -3,6 +3,7 @@ test_that("ref_placeholder", {
     label = "[Tt]itle",
     type = "title",
     tie_breaker = "top",
+    label_match = "match",
     label_from = c("slide","layout"),
     replace = TRUE
   )
