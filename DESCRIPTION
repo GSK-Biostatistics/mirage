@@ -1,6 +1,6 @@
 Package: mirage
 Title: Add vision to PowerPoint Presentations
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: c(
       person("Ellis", "Hughes", email = "ellis.h.hughes@gsk.com", role = c("aut", "cre")), 
       person("Shannon", "Haughton", email = "shannon.l.haughton@gsk.com", role = "aut"),
