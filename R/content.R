@@ -17,17 +17,40 @@
 #' @param group_contents boolean indicating if the polished value should be
 #'   shown in the powerpoint as a grouped Sp. The default, and for most cases,
 #'   TRUE.
-#' @param ... arguments to include when polishing `value`
+#' @param ... Additional arguments forwarded to the [polish::polish_content_pptx()]
+#'   method for `value`'s class. For example, `ggplot` objects accept `height`,
+#'   `width`, `res`, `device`, and `scale`; `character` objects accept
+#'   `font_color`, `font_size`, `font_style`, and `font_typeface`. See
+#'   [polish::polish_content_pptx()] for the full list per content type.
 #' @inheritParams rlang::args_error_context
+#'
+#' @details
+#' Any named arguments passed via `...` are forwarded to the appropriate
+#' [polish::polish_content_pptx()] method when the content is rendered into the
+#' slide. The available arguments depend on the class of `value`.
+#'
+#' @seealso [polish::polish_content_pptx()] for the full set of polishing
+#'   arguments available per content type.
 #'
 #' @examples
 #'
 #' content("My Title 2", ph = ph_title())
 #' content(mtcars      , ph = ph_body())
 #'
+#' # Pass polishing args for a ggplot (controls rendered dimensions)
+#' content(
+#'   ggplot2::ggplot(mtcars, ggplot2::aes(wt, mpg)) + ggplot2::geom_point(),
+#'   ph = ph_body(),
+#'   height = 3,
+#'   width = 5
+#' )
+#'
+#' # Pass polishing args for character content (font styling)
+#' content("My Title", ph = ph_title(), font_size = 24, font_color = "#C00000")
+#'
 #' remove_content(ph = ph_title())
 #' remove_content(ph = ref_placeholder(label = "An Existing Placeholder"))
-#'
+
 #' @export
 #' @rdname content
 
