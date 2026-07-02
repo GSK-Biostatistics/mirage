@@ -11,7 +11,7 @@
 
 \item{ph}{placeholder}
 
-\item{pptx}{The powerpoint presentation.}
+\item{pptx}{The Powerpoint Presentation object}
 
 \item{...}{These dots are for future extensions and must be empty.}
 

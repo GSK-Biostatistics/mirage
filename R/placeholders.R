@@ -199,7 +199,7 @@ get_selection_pane_xfrm <- function(
     index,
     type = c("body", "title", "ctrTitle", "ftr", "subTitle", "tbl", "chart", "img", "dt", "any"),
     label = "[Pp]laceholder",
-    label_match = c("match", "exact"),
+    label_match = c("exact","match"),
     label_from = c("slide","layout"),
     tie_breaker = "largest",
     replace = TRUE,
