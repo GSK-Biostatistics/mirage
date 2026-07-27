@@ -7,7 +7,7 @@
 \usage{
 ref_placeholder(
   label = "",
-  label_match = c("match", "exact"),
+  label_match = c("exact", "match"),
   label_from = c("slide", "layout"),
   type = c("body", "title", "ctrTitle", "ftr", "subTitle", "tbl", "chart", "img", "any"),
   tie_breaker = c("largest", "smallest", "left", "right", "top", "bottom"),
@@ -30,7 +30,7 @@ new_placeholder(
 pass a pattern to search with if label_match is set to "match".}
 
 \item{label_match}{Use "match" if \code{label} is a regex pattern, or "exact"
-for exact match}
+for exact match. Defaults to "exact".}
 
 \item{label_from}{Which placeholder label should be used, the one listed in
 the "slide" or from the "layout". Generally new slides should use "layout",
@@ -90,6 +90,7 @@ ref_placeholder(
     label = "[Tt]itle",
     type = "title",
     tie_breaker = "top",
+    label_match = "match",
     label_from = c("slide","layout"),
     replace = TRUE
     )

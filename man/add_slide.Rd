@@ -56,7 +56,7 @@ mentioned in error messages as the source of the error. See the
 
 \item{to}{new index to move the slide to}
 
-\item{verbose}{if TRUE, some information is \code{\link[cli:cli_abort]{cli::cli_inform()}}ed along the
+\item{verbose}{if TRUE, some information is \code{\link[cli:cli_inform]{cli::cli_inform()}}ed along the
 way}
 }
 \description{
