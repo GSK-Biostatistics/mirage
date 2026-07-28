@@ -5,7 +5,7 @@
 #' @importFrom xml2 xml_add_child xml_find_first read_xml xml_find_all xml_name xml_child xml_attr xml_children write_xml `xml_attr<-` xml_remove xml_attrs
 #' @importFrom tools file_ext
 #' @importFrom purrr map map_chr walk map_dfr list_rbind map_int imap
-#' @importFrom dplyr mutate left_join bind_rows select across case_when full_join na_if filter slice rename ends_with arrange anti_join nest_by pull summarise group_by everything pick n ungroup
+#' @importFrom dplyr mutate left_join bind_rows select across case_when full_join na_if filter slice rename ends_with arrange anti_join nest_by pull summarise group_by everything pick n ungroup desc
 #' @importFrom tibble tibble as_tibble lst
 #' @importFrom utils capture.output str
 #' @importFrom glue glue glue_collapse

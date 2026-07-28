@@ -4,15 +4,14 @@
 \alias{preview_pptx}
 \title{Preview a mirage PPTX in the Viewer pane}
 \usage{
-preview_pptx(pptx, slide = 1L, width = "100\%", height = "600px")
+preview_pptx(pptx, slide = 1L, view = rlang::is_interactive())
 }
 \arguments{
 \item{pptx}{A \code{pptx_container} object or a file path to a \code{.pptx} file.}
 
 \item{slide}{Integer. Which slide to show first (1-based). Default \code{1}.}
 
-\item{width, height}{Dimensions of the viewer in pixels. Defaults to \code{"100\%"} and
-\code{"600px"}.}
+\item{view}{Logical. If \code{TRUE} (default), opens the viewer. If \code{FALSE}, returns the html.}
 }
 \value{
 An \code{htmltools::browsable} HTML object (invisibly). Called for its
