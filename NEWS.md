@@ -1,6 +1,8 @@
 # mirage 0.3.0
 
 * Open Source the package
+* Add `preview_pptx()` function to preview PowerPoint presentations in html using a modified version of PptxViewJS
+* Update `ggplot.placeholder_tbl` to print placeholders in order of side to try to help preview shapes and prevent larger placeholders being placed over smaller ones
 
 # mirage 0.2.3
 
