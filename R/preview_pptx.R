@@ -89,7 +89,7 @@ preview_pptx <- function(pptx, slide = 1L, view = rlang::is_interactive()) {
 
 <div id="toolbar">
   <button id="btn-prev" disabled>&#8592; Prev</button>
-  <span id="slide-info">Loading\u2026</span>
+  <span id="slide-info">Loading...</span>
   <button id="btn-next" disabled>Next &#8594;</button>
   <span id="status"></span>
 </div>
