@@ -603,7 +603,7 @@ ggplot.placeholder_tbl <- function(data, ...) {
   
   estimated_area_sorted_data <- data |>
     mutate(area = width * height) |>
-    arrange(desc(area))
+    arrange(dplyr::desc(area))
   
   ## add placeholders in size order so that the first ones are on top of the others
    slide_base <- slide_base +
