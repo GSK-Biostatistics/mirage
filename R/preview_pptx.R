@@ -6,8 +6,7 @@
 #'
 #' @param pptx A `pptx_container` object or a file path to a `.pptx` file.
 #' @param slide Integer. Which slide to show first (1-based). Default `1`.
-#' @param width,height Dimensions of the viewer in pixels. Defaults to `"100%"` and
-#'   `"600px"`.
+#' @param view Logical. If `TRUE` (default), opens the viewer. If `FALSE`, returns the html.
 #'
 #' @return An `htmltools::browsable` HTML object (invisibly). Called for its
 #'   side-effect of opening the viewer.
@@ -18,7 +17,8 @@
 #' pptx <- example_pptx()
 #' preview_pptx(pptx)
 #' }
-preview_pptx <- function(pptx, slide = 1L, width = "100%", height = "600px") {
+preview_pptx <- function(pptx, slide = 1L, view = rlang::is_interactive()) {
+
   # Resolve to a file path
   if (inherits(pptx, "pptx_container")) {
     tmp <- tempfile(fileext = ".pptx")
@@ -54,7 +54,7 @@ preview_pptx <- function(pptx, slide = 1L, width = "100%", height = "600px") {
 
   initial_slide <- as.integer(slide) - 1L  # 0-based for JS
 
-  # Build HTML via paste0 — avoids sprintf misinterpreting '%' chars in minified JS
+  # Build HTML via paste0 - avoids sprintf misinterpreting '%' chars in minified JS
   html <- htmltools::HTML(paste0(
     '<!DOCTYPE html>
 <html lang="en">
@@ -115,7 +115,7 @@ preview_pptx <- function(pptx, slide = 1L, width = "100%", height = "600px") {
 
   // Size canvas to fill the container using the true slide aspect ratio.
   // Must set both the canvas pixel dimensions (width/height attributes) AND
-  // the CSS display size — they are independent. The pixel dimensions control
+  // the CSS display size - they are independent. The pixel dimensions control
   // what PptxViewJS actually renders into; CSS controls how it is displayed.
   const ASPECT = ', aspect_ratio, ';
   function resizeCanvas() {
@@ -155,7 +155,7 @@ preview_pptx <- function(pptx, slide = 1L, width = "100%", height = "600px") {
 
   const viewer = new PptxViewJS.PPTXViewer({ canvas });
 
-  // Safely render the current slide — empty slides can throw, so we catch and
+  // Safely render the current slide - empty slides can throw, so we catch and
   // clear the canvas instead of letting the error break navigation entirely.
   async function safeRender() {
     try {
@@ -227,6 +227,8 @@ preview_pptx <- function(pptx, slide = 1L, width = "100%", height = "600px") {
   ))
 
   out <- htmltools::browsable(html)
-  print(out)
+  if (view) {
+    print(out)
+  } 
   invisible(out)
 }
