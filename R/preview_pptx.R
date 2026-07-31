@@ -52,6 +52,12 @@ preview_pptx <- function(pptx, slide = 1L, view = rlang::is_interactive()) {
   slide_dims <- officer::slide_size(rpptx)
   aspect_ratio <- slide_dims$width / slide_dims$height
 
+  n_slides <- length(rpptx)
+  if(slide < 1 || slide > n_slides) {
+    cli::cli_abort(
+      "{.arg slide} must be between 1 and {n_slides}."
+    )
+  }
   initial_slide <- as.integer(slide) - 1L  # 0-based for JS
 
   # Build HTML via paste0 - avoids sprintf misinterpreting '%' chars in minified JS
@@ -191,12 +197,12 @@ preview_pptx <- function(pptx, slide = 1L, view = rlang::is_interactive()) {
     status.textContent = total + " slide" + (total !== 1 ? "s" : "");
     // Render first, then navigate to the requested start slide if needed.
     // goToSlide alone does not render; safeRender() must follow it.
-    await safeRender();
     const startSlide = Math.min(', initial_slide, ', total - 1);  // 0-based
     if (startSlide > 0) {
       try { await viewer.goToSlide(startSlide); } catch(e) {}  // goToSlide is 0-based
-      await safeRender();
     }
+      
+    await safeRender();
   });
 
   btnPrev.addEventListener("click", async () => {
@@ -220,6 +226,7 @@ preview_pptx <- function(pptx, slide = 1L, view = rlang::is_interactive()) {
   });
 
   await viewer.loadFile(file);
+
 })();
 </script>
 </body>
