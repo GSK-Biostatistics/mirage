@@ -11,11 +11,9 @@ update_slide <- function(pptx, index, ..., transition = NULL, polish_error_conti
     content_list <- tryCatch(
       check_mirage_content(..., error_call = error_call),
       error = function(e) {
+        ## save error to pptx object so it can be retrieved later
         add_pptx_error(pptx, index = index, error = e)
-
-        if (!isTRUE(polish_error_continue)) {
-          cnd_signal(e)
-        }
+        cnd_signal(e)
       }
     )
 
