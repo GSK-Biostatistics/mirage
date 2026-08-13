@@ -55,6 +55,41 @@
         => polish_content_pptx.foo
         * polish_content_pptx.default
 
+# add_slide() with with actual error fails
+
+    Code
+      pptx <- add_slide(pptx, layout = "Title Slide", content(foo, ph = ph_body()))
+    Condition
+      Error in `add_slide()`:
+      ! Failed to add slide 1.
+      Caused by error in `add_slide()`:
+      ! Error evaluating content at position 1: "content(foo, ph = ph_body())".
+      i Error message: object 'foo' not found
+
+---
+
+    Code
+      pptx <- add_slide(pptx, layout = "Title Slide", content(foo, ph = ph_body()),
+      content(1, ph = ph_body()))
+    Condition
+      Error in `add_slide()`:
+      ! Failed to add slide 1.
+      Caused by error in `add_slide()`:
+      ! Error evaluating content at position 1: "content(foo, ph = ph_body())".
+      i Error message: object 'foo' not found
+
+---
+
+    Code
+      pptx <- add_slide(pptx, layout = "Title Slide", content(1, ph = ph_body()),
+      content(foo, ph = ph_body()))
+    Condition
+      Error in `add_slide()`:
+      ! Failed to add slide 1.
+      Caused by error in `add_slide()`:
+      ! Error evaluating content at position 2: "content(foo, ph = ph_body())".
+      i Error message: object 'foo' not found
+
 # update_slide(), errors on unknown arguments
 
     Code
@@ -119,4 +154,22 @@
       ".//p:spTree")))))
     Output
       [1] "<p:sp>\n  <p:nvSpPr>\n    <p:cNvPr id=\"AN ID\" name=\"my content\"/>\n    <p:cNvSpPr>\n      <a:spLocks noGrp=\"1\"/>\n    </p:cNvSpPr>\n    <p:nvPr>\n      <p:ph/>\n    </p:nvPr>\n  </p:nvSpPr>\n  <p:spPr>\n    <a:xfrm>\n      <a:off x=\"457200\" y=\"3429000\"/>\n      <a:ext cx=\"8229600\" cy=\"685800\"/>\n    </a:xfrm>\n  </p:spPr>\n  <p:txBody>\n    <a:bodyPr/>\n    <a:lstStyle/>\n    <a:p>\n      <a:r>\n        <a:t>new text</a:t>\n      </a:r>\n    </a:p>\n  </p:txBody>\n  <p:extLst>\n    <p:ext uri=\"r://package/mirage\">\n      <custom:meta xmlns:custom=\"urn:schemas-microsoft-com:office:custom-properties\">\n        <custom:property name=\"a:xfrm/a:off/@x\" value=\"457200\"/>\n        <custom:property name=\"a:xfrm/a:off/@y\" value=\"3429000\"/>\n        <custom:property name=\"a:xfrm/a:ext/@cx\" value=\"8229600\"/>\n        <custom:property name=\"a:xfrm/a:ext/@cy\" value=\"685800\"/>\n      </custom:meta>\n    </p:ext>\n  </p:extLst>\n</p:sp>"
+
+# errors are recorded (#56)
+
+    Code
+      pptx <- add_slide(pptx, index = 1, layout = "Title and Content", content(
+        BAD_CONTENT, ph = ph_body()), polish_error_continue = TRUE)
+    Condition
+      Error in `add_slide()`:
+      ! Failed to add slide 1.
+      Caused by error in `add_slide()`:
+      ! Error evaluating content at position 1: "content(BAD_CONTENT, ph = ph_body())".
+      i Error message: object 'BAD_CONTENT' not found
+
+---
+
+    Code
+      pptx <- add_slide(pptx, index = 1, layout = "Title and Content", content(rnorm,
+        ph = ph_body()), polish_error_continue = TRUE)
 

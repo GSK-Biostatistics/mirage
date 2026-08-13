@@ -26,7 +26,9 @@ test_that("add_slide()", {
 
 })
 
+
 test_that("add_slide() with polish_error_continue", {
+
   local_methods(
     polish_content_pptx.foo = function(x, ph = '<p:ph/>', ..., error_call = current_env()) {
       "not an xml_nodeset"
@@ -51,7 +53,7 @@ test_that("add_slide() with polish_error_continue", {
   })
   expect_equal(length(pptx), 1)
 
-  expect_snapshot(error = FALSE, {
+  expect_snapshot({
     pptx <- pptx |>
       add_slide(
         layout = "Title Slide",
@@ -59,6 +61,54 @@ test_that("add_slide() with polish_error_continue", {
       )
   })
   expect_equal(length(pptx), 2)
+
+})
+
+test_that("add_slide() with with actual error fails", {
+
+  ## missing/nonexisting object
+  pptx <- load_pptx()
+
+  ## intiital state
+  expect_equal(length(pptx), 0)
+
+  expect_snapshot(error = TRUE,{
+    pptx <- pptx |>
+      add_slide(
+        layout = "Title Slide",
+        content(foo, ph = ph_body())
+      )
+  })
+
+  ## expect the slide was was added for valid content
+  expect_equal(length(pptx), 0)
+
+  ## one erroring content and one valid content, expect the slide was not added
+  expect_snapshot(error = TRUE,{
+    pptx <- pptx |>
+      add_slide(
+        layout = "Title Slide",
+        content(foo, ph = ph_body()),
+        content(1, ph = ph_body())
+      )
+  })
+
+  ## expect the slide was not added
+  expect_equal(length(pptx), 0)
+
+  ## one valid content and one invalid content, expect the slide was not added
+  expect_snapshot(error = TRUE,{
+    pptx <- pptx |>
+      add_slide(
+        layout = "Title Slide",
+        content(1, ph = ph_body()),
+        content(foo, ph = ph_body())
+      )
+  })
+
+  ## expect the slide was not added
+  expect_equal(length(pptx), 0)
+
 
 })
 
@@ -566,22 +616,31 @@ test_that("errors are recorded (#56)", {
   errors <- slide_errors(pptx)
   expect_equal(nrow(errors), 0L)
 
-  pptx <- pptx |>
-    add_slide(index = 1, layout = "Title and Content", content(BAD_CONTENT, ph = ph_body()), polish_error_continue = TRUE)
+  ## Throw an error when adding a slide with invalid content
+  expect_snapshot(error = TRUE, {
+    pptx <- pptx |>
+        add_slide(index = 1, layout = "Title and Content", content(BAD_CONTENT, ph = ph_body()), polish_error_continue = TRUE)
+  })
 
   errors <- slide_errors(pptx)
   expect_equal(nrow(errors), 1L)
   expect_equal(errors$index, 1)
-  expect_equal(rlang::cnd_header(errors$errors[[1]]), "All elements of `...` must be marked as mirage content.")
+  ## could not find object 'BAD_CONTENT', but stops
+  expect_equal(rlang::cnd_header(errors$errors[[1]])[[1]], "Error evaluating content at position 1: \"content(BAD_CONTENT, ph = ph_body())\".")
 
-  pptx <- pptx |>
-    add_slide(index = 1, layout = "Title and Content", content(rnorm, ph = ph_body()), polish_error_continue = TRUE)
+  ## don't throw an error when adding a slide with the inability to polish the content, but record the error
+  expect_snapshot({
+    pptx <- pptx |>
+      add_slide(index = 1, layout = "Title and Content", content(rnorm, ph = ph_body()), polish_error_continue = TRUE)
+  })
 
   errors <- slide_errors(pptx)
   expect_equal(nrow(errors), 1L)
   expect_equal(errors$index, 1)
+  ## No applicable polish method for object of class "function"
   expect_true(
     grepl("^Cannot polish content for.*documents[.]", rlang::cnd_header(errors$errors[[1]]))
   )
+
 })
 
