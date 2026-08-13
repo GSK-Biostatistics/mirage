@@ -16,7 +16,7 @@ add_table_style(
 
 \item{table_style}{an xml_node that defines a tblStyle. Created by \code{\link[=new_table_style]{new_table_style()}}.}
 
-\item{verbose}{if TRUE, some information is \code{\link[cli:cli_abort]{cli::cli_inform()}}ed along the way}
+\item{verbose}{if TRUE, some information is \code{\link[cli:cli_inform]{cli::cli_inform()}}ed along the way}
 
 \item{error_call}{The execution environment of a currently
 running function, e.g. \code{caller_env()}. The function will be
