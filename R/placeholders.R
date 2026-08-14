@@ -384,7 +384,10 @@ select_ph_tie_breaker <- function(df, tie_breaker = c("largest", "smallest", "le
 #'   add_slide(layout = "Title and Content", index = 1, content("hello", ph = ph_title()))
 #' 
 #' ## remove the placeholder from the slide
-#' pptx <- remove_slide_ph(pptx, index = 1, ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1])
+#' pptx <- remove_slide_ph(pptx, 
+#'           index = 1, 
+#'           ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1]
+#'         )
 #'
 #' @export
 remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verbose = getOption("mirage.verbose", default = FALSE)) {
@@ -430,7 +433,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 #' @param layout the name of the layout in the powerpoint. Overridden if index is provided
 #' @param units "in" or "cm", what units should be used for the values presented
 #'   (offsets, dimensions)
-#' @param keep_all Keep all the placeholders (TRUE), or only the ons with a <ph> node (FALSE)
+#' @param keep_all Keep all the placeholders (TRUE), or only the ons with a \<ph\> node (FALSE)
 #' @inheritParams rlang::args_error_context
 #'
 #' @examples

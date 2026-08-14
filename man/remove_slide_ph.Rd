@@ -34,6 +34,9 @@ pptx <- load_pptx() |>
   add_slide(layout = "Title and Content", index = 1, content("hello", ph = ph_title()))
 
 ## remove the placeholder from the slide
-pptx <- remove_slide_ph(pptx, index = 1, ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1])
+pptx <- remove_slide_ph(pptx, 
+          index = 1, 
+          ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1]
+        )
 
 }

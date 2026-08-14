@@ -23,7 +23,7 @@ list_placeholders(
 \item{units}{"in" or "cm", what units should be used for the values presented
 (offsets, dimensions)}
 
-\item{keep_all}{Keep all the placeholders (TRUE), or only the ons with a \if{html}{\out{<ph>}} node (FALSE)}
+\item{keep_all}{Keep all the placeholders (TRUE), or only the ons with a \<ph\> node (FALSE)}
 
 \item{error_call}{The execution environment of a currently
 running function, e.g. \code{caller_env()}. The function will be
