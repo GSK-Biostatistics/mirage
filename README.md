@@ -20,11 +20,19 @@ document, create new slides, or update old ones.
 
 ## Installation
 
-You can install the development version of {mirage} like so:
+The easiest way to install mirage is to install from CRAN
+
+``` r
+install.packages("mirage")
+```
+
+Alternatively, you can install the development version of {mirage} like so:
 
 ``` r
 pak::pak("GSK-Biostatistics/mirage")
 ```
+
+
 
 ## Example
 
