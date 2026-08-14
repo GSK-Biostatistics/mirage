@@ -24,7 +24,14 @@ metadata <- function(data, uri = "r://package/mirage", error_call = current_env(
 #' @param metadata named character vector
 #' @param name name of element to extract
 #' @param empty synonyms for ""
-#'
+#' 
+#' @examples
+#' m <- c(foo = "abc", bar = "def")
+#' extract_metadata_element(m, name = "foo")
+#' extract_metadata_element(m, name = "bar", empty = "def") ## return ""
+#' 
+#' @return the value of the metadata element, or "" if not found 
+#' 
 #' @export
 extract_metadata_element <- function(metadata, name = "name", empty = "<display>") {
   if (name %in% names(metadata)) {

@@ -15,6 +15,9 @@ use \code{NULL}.}
 
 \item{...}{unused, for future expansion of options.}
 }
+\value{
+a \code{preset_shape} object that can be added to a slide via \code{\link[=content]{content()}}
+}
 \description{
 Programmatically define a shape by its type, fill, effect. Will fill the
 ph it is dropped into.

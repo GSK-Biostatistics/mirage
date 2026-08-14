@@ -3,6 +3,12 @@
 #' List the available table styles within the document
 #'
 #' @inheritParams args_mirage
+#' 
+#' @examples
+#' pptx <- example_pptx()
+#' get_table_styles(pptx) 
+#' 
+#' @return A data frame with columns `style_id` and `style_name` for each table style in the presentation.
 #'
 #' @export
 get_table_styles <- function(pptx){
@@ -34,7 +40,14 @@ get_table_styles <- function(pptx){
 #' @inheritParams rlang::args_error_context
 #' @param table_style an xml_node that defines a tblStyle. Created by [new_table_style()].
 #' @param verbose if TRUE, some information is [cli::cli_inform()]ed along the way
-#'
+#' 
+#' @examples
+#' pptx <- example_pptx()
+#' table_style <- new_table_style("My New Style")
+#' pptx <- add_table_style(pptx, table_style) #' 
+#' 
+#' @return a `pptx_container` object with the new table style added
+#' 
 #' @export
 #'
 add_table_style <- function(pptx, table_style, verbose = getOption("mirage.verbose", default = FALSE), error_call = caller_env()){
@@ -90,7 +103,11 @@ add_table_style <- function(pptx, table_style, verbose = getOption("mirage.verbo
 #'   Must be a value between 0 and 20116800.
 #'
 #' @inheritParams rlang::args_error_context
-#'
+#' 
+#' @examples
+#' example_table_style <- new_table_style("Example Style", text_color = "blue", border_color = "pink")
+#' 
+#' @return An xml_node that defines a tblStyle. Added to a powerpoint via add_table_style().
 #'
 #' @export
 new_table_style <- function(style_name,
@@ -432,6 +449,12 @@ as_hex_codes <- function(x, tint = NULL) {
 #'
 #' @param x  either a color name (as listed by colors()), a hexadecimal string
 #' @param tint the percentage to tint the color. Must be a value between 0 and 1
+#' 
+#' @examples
+#' tint_color("blue", tint = .5)
+#' tint_color("#0000FF", tint = .5)
+#' 
+#' @return A hexadecimal color string representing the tinted color.
 #'
 #' @export
 tint_color <- function(x, tint){

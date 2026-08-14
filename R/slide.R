@@ -5,6 +5,14 @@
 #' @inheritParams rlang::args_error_context
 #'
 #' @return The slide, as read by [xml2::read_xml]
+#' 
+#' @examples
+#' ppt <- example_pptx()
+#' read_slide(ppt, index = 1)
+#' 
+#' 
+#' 
+#' @export
 read_slide <- function(pptx, index, error_call = current_env()) {
   read_xml(
     get_slide_file_name(pptx, index, error_call = error_call)
@@ -16,6 +24,8 @@ read_slide <- function(pptx, index, error_call = current_env()) {
 #' @inheritParams read_slide
 #'
 #' @return The slide layout, as read by [xml2::read_xml]
+#' 
+#' @noRd
 read_slide_layout <- function(pptx, index, error_call = current_env()) {
   read_xml(get_slide_layout_file_name(pptx, index, error_call = error_call))
 }
@@ -25,7 +35,13 @@ read_slide_layout <- function(pptx, index, error_call = current_env()) {
 #' @inheritParams args_mirage
 #' @inheritParams rlang::args_error_context
 #' @param index slide index
-#'
+#' 
+#' @examples
+#' pptx <- example_pptx()
+#' get_slide_file_name(pptx, index = 1)
+#' 
+#' @return The file name for the slide, as a character string
+#' 
 #' @export
 get_slide_file_name <- function(pptx, index, error_call = current_env()) {
   slide <- get_presentation_slide(pptx, index = index, error_call = error_call)

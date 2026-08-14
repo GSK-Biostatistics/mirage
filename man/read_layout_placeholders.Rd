@@ -26,3 +26,9 @@ mentioned in error messages as the source of the error. See the
 \description{
 Read layout placeholders
 }
+\examples{
+
+pptx <- example_pptx()
+read_layout_placeholders(pptx, layout = "Title Slide")
+
+}

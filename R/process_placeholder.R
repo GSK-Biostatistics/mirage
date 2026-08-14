@@ -52,6 +52,7 @@ make_ph_shape <- function(ph, pptx){
 #' @param index Slide number
 #' @inheritParams rlang::args_dots_empty
 #' @inheritParams rlang::args_error_context
+#' @noRd
 process_placeholder <- function(ph, pptx, index, ..., error_call = current_env()){
   UseMethod("process_placeholder")
 }

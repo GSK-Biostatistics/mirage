@@ -22,3 +22,10 @@ The slide, as read by \link[xml2:read_xml]{xml2::read_xml}
 \description{
 Read a single slide as xml
 }
+\examples{
+ppt <- example_pptx()
+read_slide(ppt, index = 1)
+
+
+
+}

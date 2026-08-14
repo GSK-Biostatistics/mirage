@@ -40,6 +40,9 @@ running function, e.g. \code{caller_env()}. The function will be
 mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
+\value{
+a \code{mirage_content} object for \code{\link[=content]{content()}} and a \code{remove_mirage_content} object for \code{\link[=remove_content]{remove_content()}}
+}
 \description{
 \code{\link[=content]{content()}} lets a user specify a value to add to a slide, and the location
 on the slide to add it through the ph argument. ph defines the placeholder,
@@ -73,6 +76,7 @@ content("My Title", ph = ph_title(), font_size = 24, font_color = "#C00000")
 
 remove_content(ph = ph_title())
 remove_content(ph = ref_placeholder(label = "An Existing Placeholder"))
+
 }
 \seealso{
 \code{\link[polish:polish_content_pptx]{polish::polish_content_pptx()}} for the full set of polishing

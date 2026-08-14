@@ -13,6 +13,15 @@ extract_metadata_element(metadata, name = "name", empty = "<display>")
 
 \item{empty}{synonyms for ""}
 }
+\value{
+the value of the metadata element, or "" if not found
+}
 \description{
 Extract metadata element
+}
+\examples{
+m <- c(foo = "abc", bar = "def")
+extract_metadata_element(m, name = "foo")
+extract_metadata_element(m, name = "bar", empty = "def") ## return ""
+
 }

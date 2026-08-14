@@ -50,7 +50,9 @@
 #'
 #' remove_content(ph = ph_title())
 #' remove_content(ph = ref_placeholder(label = "An Existing Placeholder"))
-
+#' 
+#' @return a `mirage_content` object for [content()] and a `remove_mirage_content` object for [remove_content()]
+#' 
 #' @export
 #' @rdname content
 

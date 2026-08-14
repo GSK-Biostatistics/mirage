@@ -19,6 +19,15 @@
 #' @inheritParams rlang::args_error_context
 #'
 #' @rdname ph_templates
+#' 
+#' @examples
+#' ## create a new placeholder with a label of "my_placeholder"
+#' templated_placeholder(
+#'   preferred = ref_placeholder(label = "title", type = "title"),
+#'   fallback = new_placeholder(label = "my_placeholder", type = "body", x_offset = "5%", width = "90%", y_offset = "5%", height = "12.5%")
+#' )
+#'  
+#' @return a `templated_placeholder` object 
 #'
 #' @export
 templated_placeholder <- function(preferred, fallback, error_call = current_env()){

@@ -11,6 +11,14 @@ tint_color(x, tint)
 
 \item{tint}{the percentage to tint the color. Must be a value between 0 and 1}
 }
+\value{
+A hexadecimal color string representing the tinted color.
+}
 \description{
 Apply tint to a provided color
+}
+\examples{
+tint_color("blue", tint = .5)
+tint_color("#0000FF", tint = .5)
+
 }

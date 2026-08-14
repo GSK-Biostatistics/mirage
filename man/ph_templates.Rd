@@ -43,6 +43,9 @@ mentioned in error messages as the source of the error. See the
 \item{replace}{Identify whether to replace the existing placeholder if
 it exists on the slide. Defaults to TRUE.}
 }
+\value{
+a \code{templated_placeholder} object
+}
 \description{
 Included standard template locations to put standard contents when
 constructing a slide.
@@ -54,4 +57,12 @@ either in the slide or defined in the layout, and the fallback must be a
 \code{new_placeholder} object (\code{new_placeholder()}), which defines a placeholder
 into the slide without needing there to be a pre-defined placeholder in the
 slide layout.
+}
+\examples{
+## create a new placeholder with a label of "my_placeholder"
+templated_placeholder(
+  preferred = ref_placeholder(label = "title", type = "title"),
+  fallback = new_placeholder(label = "my_placeholder", type = "body", x_offset = "5\%", width = "90\%", y_offset = "5\%", height = "12.5\%")
+)
+ 
 }

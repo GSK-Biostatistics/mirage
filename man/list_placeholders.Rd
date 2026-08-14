@@ -30,6 +30,9 @@ running function, e.g. \code{caller_env()}. The function will be
 mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
+\value{
+a \code{placeholder_tbl} object with the available placeholders in the slide or layout
+}
 \description{
 List the available placeholders in a slide or a given layout
 }

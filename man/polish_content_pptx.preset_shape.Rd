@@ -20,6 +20,9 @@ running function, e.g. \code{caller_env()}. The function will be
 mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
+\value{
+a "polish_xml_nodeset" of viable PowerPoint OOXML for addition to PowerPoint presentations representing a polished preset_shape object
+}
 \description{
 Polish fit models
 }

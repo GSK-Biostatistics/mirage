@@ -59,6 +59,8 @@
 #'
 #' shape("rightArrow", fill = "#000000", outline = "#ffffff")
 #' shape("heart", fill = "orange", outline = "grey")
+#' 
+#' @return a `preset_shape` object that can be added to a slide via [content()]
 #'
 #' @importFrom rlang check_dots_empty
 #' @export
@@ -106,10 +108,13 @@ shape <- function(x, fill="default", outline="default", ...){
 #'
 #' file <- tempfile(fileext = ".pptx")
 #' pptx |> save_pptx(file)
-#'
+#' 
+#' @return a "polish_xml_nodeset" of viable PowerPoint OOXML for addition to PowerPoint presentations representing a polished preset_shape object
+#' 
 #' @importFrom polish polish_content_pptx as_xml_nodeset as_xml_pptx
 #' @importFrom xml2 xml_find_first xml_add_child xml_add_sibling
 #' @importFrom glue glue
+#' @method polish_content_pptx preset_shape
 #' @export
 polish_content_pptx.preset_shape <- function(x, ph = "<p:ph/>", pptx, ..., error_call = current_env()){
 
