@@ -7,8 +7,6 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/mirage)](https://CRAN.R-project.org/package=mirage)
 [![R-CMD-check](https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
@@ -26,13 +24,12 @@ The easiest way to install mirage is to install from CRAN
 install.packages("mirage")
 ```
 
-Alternatively, you can install the development version of {mirage} like so:
+Alternative, you can install the development version of {mirage} like
+so:
 
 ``` r
 pak::pak("GSK-Biostatistics/mirage")
 ```
-
-
 
 ## Example
 
