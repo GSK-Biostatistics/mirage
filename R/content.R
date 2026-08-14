@@ -120,24 +120,43 @@ check_group_contents <- function(group, error_call = caller_env()){
 }
 
 check_mirage_content <- function(..., error_call = caller_env()) {
-  content_list <- withCallingHandlers(list2(...), error = function(e) {
-    cli_abort(c(
-        "All elements of {.arg ...} must be marked as mirage content."
-      ), call = error_call, parent = e)
-  })
 
-  for (i in seq_along(content_list)) {
-    x <- content_list[[i]]
+  ## quo the ... to get the passed content to evaluate for error messages
+  content_list_quo <- rlang::quos(...)
+
+  evaluated_content_list <- lapply(seq_along(content_list_quo), function(i) {
+
+    # evaluate the argument to get the actual value
+    x <- tryCatch(
+      rlang::eval_tidy(content_list_quo[[i]]),
+      error = function(e) {
+        cli_abort(c(
+          "Error evaluating content at position {i}: {.val {rlang::as_label(content_list_quo[[i]])}}.",
+          i = "Error message: {e$message}"
+        ),
+        call = error_call,
+        class = "mirage_content_eval_error"
+        )
+      }
+    )
+
     if (!inherits(x, "mirage_content")) {
       cli_abort(c(
         "All elements of {.arg ...} must be marked as mirage content.",
         x = "Element at position {i} is {.obj_type_friendly {x}}.",
         i = "You can create mirage content with {.fn mirage::content}."
-      ), call = error_call)
+      ),
+       call = error_call,
+       class = "mirage_content_type_error"
+      )
     }
-  }
 
-  content_list
+    ## return original argument with the evaluated value
+    x
+
+  })
+
+  evaluated_content_list
 }
 
 check_named_character <- function(x, error_call = caller_env(), arg = caller_arg(x)) {

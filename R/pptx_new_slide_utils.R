@@ -39,8 +39,9 @@ add_slide <- function(pptx, layout, ..., index, transition = NULL, polish_error_
 
   # and update it with ...
   tryCatch({
-    pptx <- update_slide(pptx, index = index, transition = transition,
+    pptx <- update_slide(pptx = pptx, index = index, transition = transition,
       polish_error_continue = polish_error_continue,
+      error_call = error_call,
       ...
     )
   }, error = function(e) {

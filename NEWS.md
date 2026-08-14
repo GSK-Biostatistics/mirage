@@ -1,7 +1,8 @@
 # mirage 0.3.1
 
 * Add `preview_pptx()` function to preview PowerPoint presentations in html using a modified version of PptxViewJS
-* Update `ggplot.placeholder_tbl` to print placeholders in order of side to try to help preview shapes and prevent larger placeholders being placed over smaller ones
+* Update `ggplot.placeholder_tbl()` to print placeholders in order of side to try to help preview shapes and prevent larger placeholders being placed over smaller ones
+* Update error handling when invalid content are put into `update_slide()` and `add_slide()` to throw error when it is invalid. Still has ability to continue if polishing fails.
 
 # mirage 0.3.0
 
