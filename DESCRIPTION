@@ -13,6 +13,8 @@ Description: Programmatically interact with new or existing 'Microsoft PowerPoin
     locations in slides by pointing to specific placeholders or creating new ones.
     Preview the slides in a local viewer.
 License: Apache License (>= 2)
+URL: https://gsk-biostatistics.github.io/mirage/, https://github.com/GSK-Biostatistics/mirage/
+BugReports: https://github.com/GSK-Biostatistics/mirage/issues/
 Depends:
     R (>= 4.1.0),
     polish (>= 0.2.0)
