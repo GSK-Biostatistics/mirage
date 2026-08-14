@@ -80,7 +80,7 @@ test_that("add_slide() with with actual error fails", {
       )
   })
 
-  ## expect the slide was was added for valid content
+  ## expect the slide was not added
   expect_equal(length(pptx), 0)
 
   ## one erroring content and one valid content, expect the slide was not added
