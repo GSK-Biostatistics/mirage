@@ -85,7 +85,7 @@ slide_transition_null()
 \arguments{
 \item{type}{string defining the slide transition type}
 
-\item{transition_type_xml}{string defining the OOXML of the transition type}
+\item{transition_type_xml}{string defining the 'OOXML' of the transition type}
 
 \item{speed}{speed of the slide transition - med, fast, or slow}
 

@@ -33,7 +33,7 @@ add_mirage_slide_transition_to_slide <- function(pptx, index, transition){
 #' other assets the transition may need.
 #'
 #' @param type string defining the slide transition type
-#' @param transition_type_xml string defining the OOXML of the transition type
+#' @param transition_type_xml string defining the 'OOXML' of the transition type
 #' @param speed speed of the slide transition - med, fast, or slow
 #' @param orientation specify "horz" or "vert", defining the orientation of a
 #'   transition

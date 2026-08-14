@@ -109,7 +109,7 @@ shape <- function(x, fill="default", outline="default", ...){
 #' file <- tempfile(fileext = ".pptx")
 #' pptx |> save_pptx(file)
 #' 
-#' @return a "polish_xml_nodeset" of viable PowerPoint OOXML for addition to PowerPoint presentations representing a polished preset_shape object
+#' @return a "polish_xml_nodeset" of viable PowerPoint 'OOXML' for addition to PowerPoint presentations representing a polished preset_shape object
 #' 
 #' @importFrom polish polish_content_pptx as_xml_nodeset as_xml_pptx
 #' @importFrom xml2 xml_find_first xml_add_child xml_add_sibling
