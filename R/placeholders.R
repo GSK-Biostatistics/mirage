@@ -373,7 +373,7 @@ select_ph_tie_breaker <- function(df, tie_breaker = c("largest", "smallest", "le
 
 #' Remove placeholder from a slide
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param ph_id placeholder id
 #' @param index index of slide
 #' @param verbose inform about the removed placeholders
@@ -390,7 +390,7 @@ select_ph_tie_breaker <- function(df, tie_breaker = c("largest", "smallest", "le
 #'         )
 #'
 #' @export
-remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verbose = getOption("mirage.verbose", default = FALSE)) {
+remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verbose = getOption("powerup.verbose", default = FALSE)) {
 
   if (is.na(ph_id)) {
     cli_abort("Cannot remove a placeholder with {.code ph_id = NA}.", call = error_call)
@@ -416,7 +416,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
   }
 
   if (isTRUE(verbose)) {
-    mirage_inform(c(
+    powerup_inform(c(
       "i" = "Removing placeholder {.val {ph_id}} from presentation {.val {pptx$name}} / slide {index}."
     ))
   }
@@ -428,7 +428,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 
 #' List the available placeholders in a slide or a given layout
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param index Slide index
 #' @param layout the name of the layout in the powerpoint. Overridden if index is provided
 #' @param units "in" or "cm", what units should be used for the values presented
@@ -679,7 +679,7 @@ get_layout_names <- function(pptx, error_call = current_env()) {
 
 #' Checks the given layout is valid
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param layout Type of layout to apply. Must match one of the available layouts or NULL.
 #'
 #' @noRd

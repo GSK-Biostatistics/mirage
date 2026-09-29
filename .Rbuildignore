@@ -1,4 +1,4 @@
-^mirage\.Rproj$
+^powerup\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
@@ -8,3 +8,4 @@ test.pptx
 ^\.github$
 ^doc$
 ^Meta$
+^powerup-manual\.tex$

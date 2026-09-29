@@ -7,7 +7,7 @@ test_that("content() asserts ph= is a placeholder", {
 
 test_that("content() makes <content>", {
   x <- content(mtcars, ph = ph_body())
-  expect_s3_class(x, "mirage_content")
+  expect_s3_class(x, "powerup_content")
 })
 
 test_that("content() is lazy about the class of value=", {
@@ -16,22 +16,22 @@ test_that("content() is lazy about the class of value=", {
 
   # first we test that we can wrap a <not_polishable> into a content
   x <- content(value, ph = ph)
-  expect_s3_class(x, "mirage_content")
+  expect_s3_class(x, "powerup_content")
 
-  # and make sure it would not pass mirage_polish_content()
-  expect_snapshot(error = TRUE, mirage_polish_content(x, ph = ph))
+  # and make sure it would not pass powerup_polish_content()
+  expect_snapshot(error = TRUE, powerup_polish_content(x, ph = ph))
 })
 
-test_that("check_mirage_content() checks ...", {
-  expect_snapshot(error = TRUE, check_mirage_content(1))
+test_that("check_powerup_content() checks ...", {
+  expect_snapshot(error = TRUE, check_powerup_content(1))
   expect_snapshot(error = TRUE,
-    check_mirage_content(
+    check_powerup_content(
       content(1, ph_body()),
       mtcars
     )
   )
 
- contents <- check_mirage_content(
+ contents <- check_powerup_content(
    content(1, ph_body()),
    content(2, ph_body_left())
  )

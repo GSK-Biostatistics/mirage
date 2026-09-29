@@ -1,5 +1,5 @@
 test_that("extract_dimensions()", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
   withr::local_package("ggplot2")
 
   pptx <- load_pptx() |>

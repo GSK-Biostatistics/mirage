@@ -31,7 +31,7 @@ test_that("remove_slide_ph()", {
 })
 
 test_that("remove_slide_ph() w/ table", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx() |>
     add_slide(index = 1, layout = 'Title Slide') |>
@@ -61,7 +61,7 @@ test_that("remove_slide_ph() w/ table", {
 })
 
 test_that("remove_slide_ph(ph_id = NA)", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx()
 

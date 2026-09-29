@@ -7,7 +7,7 @@
 add_table_style(
   pptx,
   table_style,
-  verbose = getOption("mirage.verbose", default = FALSE),
+  verbose = getOption("powerup.verbose", default = FALSE),
   error_call = caller_env()
 )
 }

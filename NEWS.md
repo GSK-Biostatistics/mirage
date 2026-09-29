@@ -1,14 +1,16 @@
-# mirage 0.3.1
+# 0.3.1
 
 * Add `preview_pptx()` function to preview PowerPoint presentations in html using a modified version of PptxViewJS
 * Update `ggplot.placeholder_tbl()` to print placeholders in order of side to try to help preview shapes and prevent larger placeholders being placed over smaller ones
 * Update error handling when invalid content are put into `update_slide()` and `add_slide()` to throw error when it is invalid. Still has ability to continue if polishing fails.
+* rename package from "mirage" to "powerup"
+* rename options/settings to use "powerup"
 
-# mirage 0.3.0
+# 0.3.0
 
 * Open Source the package
 
-# mirage 0.2.3
+# 0.2.3
 
 * `remove_slide_ph()` handles `ph_id = NA` gracefully #95.
 
@@ -38,7 +40,7 @@
 * option "mirage.inform" can be set to "console" (default), or "shiny" so that 
   inform messages are shown as shiny notifications.
 
-# mirage 0.2.2
+# 0.2.2
 
 * Add ability to move slides (`move_slide()`) and delete slides (`delete_slide()`)
 
@@ -51,19 +53,19 @@
   it generates to gently check package versions and `inform()` if a version 
   is not recent enough to be sure this all works #92. 
 
-# mirage 0.2.1
+# 0.2.1
 
 * `list_placeholders()` gains a `keep_all` argument.
 
 * Fix bug from replacing values previously added content
 
 * Add default functionality to group multiple outputs from polishing into a 
-  single grpSp so mirage sees all the content as one placeholder.
+  single grpSp so powerup sees all the content as one placeholder.
   
 * Update to not allow for duplicated Placeholder names and update for when 
   placeholder names are loaded in they are made unique.
 
-# mirage 0.2.0
+# 0.2.0
 
 * `list_slides()` gains the `$slide_file` column and only returns one row per slide. 
 
@@ -79,7 +81,7 @@
 
 * Bug fixes and test updates from officer 0.6.7 release.
 
-# mirage 0.1.0
+# 0.1.0
 
 * Initial version of mirage
 

@@ -1,5 +1,5 @@
 test_that("list_slides() only return one row per slide", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx() |>
     add_slide(index = 1, layout = 'Title Slide',
@@ -11,7 +11,7 @@ test_that("list_slides() only return one row per slide", {
          y_offset = "93%",
          width = "44%",
          height = "5%",
-         label = "mirage_footer_left_placeholder 1"
+         label = "powerup_footer_left_placeholder 1"
         )
       )
     )

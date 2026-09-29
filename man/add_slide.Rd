@@ -29,7 +29,7 @@ update_slide(
   transition = NULL,
   polish_error_continue = TRUE,
   error_call = current_env(),
-  verbose = getOption("mirage.verbose", default = TRUE)
+  verbose = getOption("powerup.verbose", default = TRUE)
 )
 }
 \arguments{
@@ -75,7 +75,7 @@ it with content from \code{...}.
 }
 \examples{
 
-library(mirage)
+library(powerup)
 
 ## Create a new presentation
 ppt <- load_pptx()

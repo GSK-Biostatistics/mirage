@@ -1,6 +1,6 @@
 #' Read a single slide as xml
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param index slide index
 #' @inheritParams rlang::args_error_context
 #'
@@ -32,7 +32,7 @@ read_slide_layout <- function(pptx, index, error_call = current_env()) {
 
 #' Get the file name for a given slide
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @inheritParams rlang::args_error_context
 #' @param index slide index
 #' 

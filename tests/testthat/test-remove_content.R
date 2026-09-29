@@ -1,5 +1,5 @@
 test_that("Simple add and remove content to a slide", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(
@@ -32,7 +32,7 @@ transform_revision <- function(x) {
 }
 
 test_that("Add content twice and remove a specific ph", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(
@@ -60,7 +60,7 @@ test_that("Add content twice and remove a specific ph", {
   expect_equal(content_removed_slide_ph$ph_label, c("placeholder 2"))
 
   ## cannot remove same snapshot again
-  local_options(mirage.verbose = TRUE)
+  local_options(powerup.verbose = TRUE)
   expect_snapshot(transform = transform_revision,
     pptx <- pptx |>
       update_slide(

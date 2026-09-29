@@ -1,6 +1,6 @@
 #' List slides
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @inheritParams rlang::args_error_context
 #' @param keep_all if FALSE, only keep non missing placeholders
 #'

@@ -1,4 +1,4 @@
-add_mirage_slide_transition_to_slide <- function(pptx, index, transition){
+add_powerup_slide_transition_to_slide <- function(pptx, index, transition){
 
   # save the slides before doing anything
   save_slides(pptx)

@@ -107,7 +107,7 @@ test_that("process_placeholder.<existing> :: body_left + right", {
 })
 
 test_that("process_placeholder(new_placeholder()) gets dimensions right", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx() |>
     add_slide(index = 1, layout = 'Title Slide')

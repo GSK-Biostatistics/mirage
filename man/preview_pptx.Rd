@@ -2,7 +2,7 @@
 % Please edit documentation in R/preview_pptx.R
 \name{preview_pptx}
 \alias{preview_pptx}
-\title{Preview a mirage PPTX in the Viewer pane}
+\title{Preview a powerup PPTX in the Viewer pane}
 \usage{
 preview_pptx(pptx, slide = 1L, view = rlang::is_interactive())
 }

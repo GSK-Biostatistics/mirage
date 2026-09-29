@@ -4,7 +4,7 @@
       remove_slide_ph(pptx, index = 3, ph_id = "foo")
     Condition
       Error in `remove_slide_ph()`:
-      ! No occupied placeholder on presentation "mirage-example.pptx" / slide 3.
+      ! No occupied placeholder on presentation "powerup-example.pptx" / slide 3.
 
 ---
 
@@ -12,7 +12,7 @@
       remove_slide_ph(pptx, index = 1, ph_id = "foo")
     Condition
       Error in `remove_slide_ph()`:
-      ! Placeholder with id "foo" not found on presentation "mirage-example.pptx" / slide 1.
+      ! Placeholder with id "foo" not found on presentation "powerup-example.pptx" / slide 1.
       i Occupied placeholder:[..]
 
 # remove_slide_ph(ph_id = NA)
