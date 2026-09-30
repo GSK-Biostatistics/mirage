@@ -11,15 +11,15 @@ version_transform <- function(x) {
 }
 
 test_that("check_pkg_version()", {
-  expect_null(check_pkg_version("mirage", "0.1.0"))
+  expect_null(check_pkg_version("powerup", "0.1.0"))
 
-  ref_version <- packageVersion("mirage")
+  ref_version <- packageVersion("powerup")
   ## version is always one major version further
   larger_ref_version <- ref_version
   larger_ref_version[1,1] <- as.numeric(larger_ref_version[1,1])+1
 
   expect_snapshot(
-    check_pkg_version("mirage", larger_ref_version),
+    check_pkg_version("powerup", larger_ref_version),
     transform = version_transform
     )
 })

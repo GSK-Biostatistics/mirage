@@ -4,7 +4,7 @@
 \alias{metadata}
 \title{extended properties metadata}
 \usage{
-metadata(data, uri = "r://package/mirage", error_call = current_env())
+metadata(data, uri = "r://package/powerup", error_call = current_env())
 }
 \arguments{
 \item{data}{Named character vector used as name= and value= for the \code{custom:property} nodes.}

@@ -1,6 +1,6 @@
 #' List layouts
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @inheritParams rlang::args_error_context
 #'
 #' @return

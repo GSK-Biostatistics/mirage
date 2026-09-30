@@ -113,7 +113,7 @@ test_that("add_slide() with with actual error fails", {
 })
 
 test_that("update_slide() + new_placeholder() uses <p:ph/>", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     update_slide(
@@ -145,7 +145,7 @@ test_that("update_slide(), errors on unknown arguments", {
     y_offset = "28%",
     width = "44%",
     height = "67%",
-    label = "mirage_body_left_placeholder 1"
+    label = "powerup_body_left_placeholder 1"
   ))
 
   pptx <- load_pptx() |>
@@ -155,7 +155,7 @@ test_that("update_slide(), errors on unknown arguments", {
 })
 
 test_that("update_slide() with ref_placeholder() removes old ph", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx()
   old_phs <- read_slide_placeholders(pptx, index = 1, only_slide = TRUE)
@@ -176,7 +176,7 @@ test_that("update_slide() with ref_placeholder() removes old ph", {
 })
 
 test_that("update_slide() with table > read_slide_placeholder() only one", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx() |>
     add_slide(index = 1, layout = 'Title Slide') |>
@@ -193,7 +193,7 @@ test_that("update_slide() with table > read_slide_placeholder() only one", {
 })
 
 test_that("add a piece of content and then replace it", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(layout = "Blank",
@@ -232,7 +232,7 @@ test_that("add a piece of content and then replace it", {
 })
 
 test_that("add a piece of content (String) and then replace it with some different object type (table)", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(layout = "Blank",
@@ -278,7 +278,7 @@ test_that("add a piece of content (String) and then replace it with some differe
 
 
 test_that("add a piece of content (table) and then replace it with some different object type (string)", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(layout = "Title and Content",
@@ -318,7 +318,7 @@ test_that("add a piece of content (table) and then replace it with some differen
 
 
 test_that("add a piece of content (table) and then replace it with some different object type (ggplt)", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(layout = "Title and Content",
@@ -360,7 +360,7 @@ test_that("add a piece of content (table) and then replace it with some differen
 })
 
 test_that("add a piece of content and then layer over it", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- example_pptx() |>
     add_slide(layout = "Title and Content",
@@ -396,7 +396,7 @@ test_that("add a piece of content and then layer over it", {
 })
 
 test_that("update previously custom placeholder (replace first time, preserve second)", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx() |>
     add_slide(index = 1, layout = 'Title Slide') |>
@@ -454,7 +454,7 @@ test_that("update previously custom placeholder (replace first time, preserve se
 })
 
 test_that("update_slide() + new_placeholder() + plot", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
   withr::local_package("ggplot2")
 
   pptx <- load_pptx() |>
@@ -493,7 +493,7 @@ test_that("update_slide() + new_placeholder() + plot", {
 })
 
 test_that("update_slide() + new_placeholder() + df", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
   withr::local_package("ggplot2")
 
   pptx <- load_pptx() |>
@@ -610,7 +610,7 @@ test_that("Wrap values with multiple ph with a grpSp", {
 })
 
 test_that("errors are recorded (#56)", {
-  local_options(mirage.verbose = FALSE)
+  local_options(powerup.verbose = FALSE)
 
   pptx <- load_pptx()
   errors <- slide_errors(pptx)

@@ -1,4 +1,4 @@
-#' Preview a mirage PPTX in the Viewer pane
+#' Preview a powerup PPTX in the Viewer pane
 #'
 #' Renders a `pptx_container` (or a path to a `.pptx` file) as an interactive
 #' slide viewer in the RStudio / Positron Viewer pane, or in the default browser.
@@ -38,7 +38,7 @@ preview_pptx <- function(pptx, slide = 1L, view = rlang::is_interactive()) {
   data_uri <- paste0("data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,", b64)
 
   # Paths to bundled JS (Chart.js must load before PptxViewJS)
-  pkg_js_dir  <- system.file("pptxviewjs", package = "mirage")
+  pkg_js_dir  <- system.file("pptxviewjs", package = "powerup")
   jszip_js    <- readLines(file.path(pkg_js_dir, "jszip.min.js"),      warn = FALSE)
   chartjs_js  <- readLines(file.path(pkg_js_dir, "chart.umd.min.js"),  warn = FALSE)
   viewer_js   <- readLines(file.path(pkg_js_dir, "PptxViewJS.min.js"), warn = FALSE)

@@ -9,7 +9,7 @@ remove_slide_ph(
   ph_id,
   index,
   error_call = current_env(),
-  verbose = getOption("mirage.verbose", default = FALSE)
+  verbose = getOption("powerup.verbose", default = FALSE)
 )
 }
 \arguments{

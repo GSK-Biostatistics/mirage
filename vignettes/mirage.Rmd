@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(mirage)
+library(powerup)
 ```
 
 For the purpose of this document, let's start by laying out some vocabulary about 
@@ -28,12 +28,12 @@ Microsoft PowerPoint documents.
  - A slide can have various displays (text, images, etc ...) placed either in these
    pre-existing placeholders, or in placeholders that are specific to the slide. 
    
-The goal of the `mirage` package is to help with creating and updating powerpoint 
-documents throughout all these steps. As such, mirage can create and delete slides, 
+The goal of the `powerup` package is to help with creating and updating powerpoint 
+documents throughout all these steps. As such, powerup can create and delete slides, 
 or update them by adding displays to either predefined or bespoke placeholders. 
 
 This vignette should give users enough information to get started with creating
-powerpoint documents and add various contents to them with mirage. 
+powerpoint documents and add various contents to them with powerup. 
 
 
 # Loading Powerpoint documents
@@ -47,8 +47,8 @@ pptx <- load_pptx()
 
 ```
 
-`mirage` uses a custom S3 class `<pptx_container>` that thinly wraps around the "rpptx" 
-class from `officer` to add some `mirage` specific functionality. 
+`powerup` uses a custom S3 class `<pptx_container>` that thinly wraps around the "rpptx" 
+class from `officer` to add some `powerup` specific functionality. 
 
 ```{r}
 pptx
@@ -100,7 +100,7 @@ layouts and some of their characteristics:
 list_layouts(pptx)
 ```
 
-`mirage` offers various ways to choose which layout to use for a new slide. 
+`powerup` offers various ways to choose which layout to use for a new slide. 
 
 The `list_placeholders()` function gives a glimpse. 
 
@@ -164,7 +164,7 @@ tbl1  <- mtcars |> select(mpg, disp) |> slice(1:5) |> flextable()
 # Placeholders
 
 The second part of what `content()` needs is information about *where* to 
-inject the display. `mirage` offers ways to precisely specify the placeholder
+inject the display. `powerup` offers ways to precisely specify the placeholder
 depending on if you intend to target a placeholder from the layout or create
 one from scratch. This is described in the dedicated vignette. 
 
@@ -196,7 +196,7 @@ we can put it all together as a simple script that
 creates a simple presentation. 
 
 ```{r}
-library(mirage)
+library(powerup)
 library(ggplot2)
 library(dplyr)
 library(flextable)
@@ -229,7 +229,7 @@ can directly handle the `content()` calls, which has the side benefits of:
 The script can then be rewritten in a more concise and expressive form:
 
 ```{r}
-library(mirage)
+library(powerup)
 library(ggplot2)
 library(dplyr)
 library(flextable)

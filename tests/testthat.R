@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(mirage)
+library(powerup)
 
-test_check("mirage")
+test_check("powerup")

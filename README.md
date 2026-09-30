@@ -1,16 +1,16 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mirage <img src="man/figures/logo.png" align="right" height="120" />
+# powerup <img src="man/figures/logo.png" align="right" height="120" />
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/GSK-Biostatistics/powerup/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GSK-Biostatistics/powerup/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of mirage is to insert displays into ‘Microsoft PowerPoint’
+The goal of powerup is to insert displays into ‘Microsoft PowerPoint’
 documents at specific locations within slides.
 
 Users can uniquely identify both where and what to add to the PowerPoint
@@ -18,23 +18,23 @@ document, create new slides, or update old ones.
 
 ## Installation
 
-The easiest way to install mirage is to install from CRAN
+The easiest way to install powerup is to install from CRAN
 
 ``` r
-install.packages("mirage")
+install.packages("powerup")
 ```
 
-Alternative, you can install the development version of {mirage} like
+Alternative, you can install the development version of {powerup} like
 so:
 
 ``` r
-pak::pak("GSK-Biostatistics/mirage")
+pak::pak("GSK-Biostatistics/powerup")
 ```
 
 ## Example
 
 ``` r
-library(mirage)
+library(powerup)
 
 # empty presentation style
 pptx <- example_pptx()
@@ -55,7 +55,7 @@ pptx <- pptx |>
            list("Sub-Bullet 3","Sub-Bullet 4")
            ), ph = ph_body_left()),
     content(polish::as_file(
-           system.file("man/figures/logo.png", package = "mirage")
+           system.file("man/figures/logo.png", package = "powerup")
            ), ph = ph_body_right())
   )
 

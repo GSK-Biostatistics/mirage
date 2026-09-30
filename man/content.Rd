@@ -41,7 +41,7 @@ mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
-a \code{mirage_content} object for \code{\link[=content]{content()}} and a \code{remove_mirage_content} object for \code{\link[=remove_content]{remove_content()}}
+a \code{powerup_content} object for \code{\link[=content]{content()}} and a \code{remove_powerup_content} object for \code{\link[=remove_content]{remove_content()}}
 }
 \description{
 \code{\link[=content]{content()}} lets a user specify a value to add to a slide, and the location

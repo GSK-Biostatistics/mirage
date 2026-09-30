@@ -15,16 +15,16 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(mirage)
+library(powerup)
 library(dplyr)
 
 pptx <- example_pptx()
 
 ```
 
-One of the many benefits of working with mirage, is that you have the ability to quickly add tables to your slides. However, some presentations require more than adding them as am basic table, but apply styling as defined in your presentation.
+One of the many benefits of working with powerup, is that you have the ability to quickly add tables to your slides. However, some presentations require more than adding them as am basic table, but apply styling as defined in your presentation.
 
-This too can be easily done via mirage by using the "table_style" argument when adding the content.
+This too can be easily done via powerup by using the "table_style" argument when adding the content.
 
 ```{r, eval = FALSE}
 

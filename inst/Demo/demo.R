@@ -25,7 +25,7 @@ pptx <- load_pptx() |>
   add_slide(
     layout = "Comparison",
     content("what this2?!", ph = ph_title()),
-    content(polish::as_file(system.file("man/figures/logo.png", package = "mirage")), ph = ph_body_left()),
+    content(polish::as_file(system.file("man/figures/logo.png", package = "powerup")), ph = ph_body_left()),
     content(flextable::flextable(head(mtcars)), ph = ph_body_right()),
     content("footer text", ph = ph_footer())
   )

@@ -9,7 +9,7 @@
 #' @importFrom utils packageVersion
 #' 
 #' @examples
-#' check_pkg_version("mirage", "0.3.1")
+#' check_pkg_version("powerup", "0.3.1")
 #' 
 #' @noRd
 check_pkg_version <- function(pkg, version) {

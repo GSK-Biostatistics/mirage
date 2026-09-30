@@ -10,7 +10,7 @@
 #' metadata(c(foo = "abc", bar = "def"))
 #'
 #' @export
-metadata <- function(data, uri = "r://package/mirage", error_call = current_env()) {
+metadata <- function(data, uri = "r://package/powerup", error_call = current_env()) {
   properties <- as_properties(data, error_call = error_call)
 
   tags <- p$extLst(
@@ -61,7 +61,7 @@ p <- list(
     tag("p:extLst", dots_list(...))
   },
 
-  ext = function(..., uri = "r://package/mirage", error_call = caller_env()) {
+  ext = function(..., uri = "r://package/powerup", error_call = caller_env()) {
     check_is_scalar_string(uri, error_call = error_call)
     tag("p:ext", list2(uri = uri, ...))
   }

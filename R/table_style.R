@@ -2,7 +2,7 @@
 #'
 #' List the available table styles within the document
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' 
 #' @examples
 #' pptx <- example_pptx()
@@ -36,7 +36,7 @@ get_table_styles <- function(pptx){
 #' this makes it available to tables that get added to the powerpoint as a table
 #' style option
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @inheritParams rlang::args_error_context
 #' @param table_style an xml_node that defines a tblStyle. Created by [new_table_style()].
 #' @param verbose if TRUE, some information is [cli::cli_inform()]ed along the way
@@ -50,7 +50,7 @@ get_table_styles <- function(pptx){
 #' 
 #' @export
 #'
-add_table_style <- function(pptx, table_style, verbose = getOption("mirage.verbose", default = FALSE), error_call = caller_env()){
+add_table_style <- function(pptx, table_style, verbose = getOption("powerup.verbose", default = FALSE), error_call = caller_env()){
 
   stopifnot(inherits(table_style,"xml_node"))
   stopifnot(identical(xml_name(table_style),"a:tblStyle"))
@@ -72,9 +72,9 @@ add_table_style <- function(pptx, table_style, verbose = getOption("mirage.verbo
   write_table_style_file(pptx, table_style_list_xml)
 
   if (verbose) {
-    mirage_inform(
+    powerup_inform(
       c("v" = "Successfully added new table style {.val {style_name}}."),
-      class = "mirage_adding_table_style_message"
+      class = "powerup_adding_table_style_message"
     )
 
   }

@@ -21,7 +21,7 @@ test_that("list_placeholders() with new ppt", {
 })
 
 test_that("list_placeholders() with a grpSp", {
-  rlang::local_options(mirage.verbose = FALSE)
+  rlang::local_options(powerup.verbose = FALSE)
 
   local_methods(
     polish_content_pptx.foo = function(x, ph = '<p:ph/>', ..., error_call = current_env()) {

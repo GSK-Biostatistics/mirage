@@ -33,11 +33,11 @@ utils::globalVariables(
   )
 )
 
-#' Documentation anchor for mirage functions
+#' Documentation anchor for powerup functions
 #'
-#' Use `@inheritParams mirage::args_mirage` to document `pptx` for your functions
+#' Use `@inheritParams powerup::args_powerup` to document `pptx` for your functions
 #'
 #' @param pptx A Powerpoint wrapped in a <pptx_container> object. see [load_pptx()]
 #'
-#' @name args_mirage
+#' @name args_powerup
 NULL

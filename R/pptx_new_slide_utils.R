@@ -11,7 +11,7 @@
 #' `delete_slide()` deletes the slide based on the index.
 #'
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param layout slide layout to use when creating a slide in `add_slide()`
 #' @param ... content objects created with [content()]
 #' @param index slide index. By default `add_slide()` creates a new slide at the
@@ -30,7 +30,7 @@
 #' 
 #' @examples
 #' 
-#' library(mirage)
+#' library(powerup)
 #' 
 #' ## Create a new presentation
 #' ppt <- load_pptx()
@@ -96,7 +96,7 @@ check_slide_layout <- function(pptx, layout, index, error_call = caller_env()) {
     bullets <- c(
       "The {.arg layout} argument is mandatory.",
       i  = "The suggested layout for index {index} is {.val {suggestion}}.",
-      i = "Use {.fn mirage::list_layouts} to see the available layouts."
+      i = "Use {.fn powerup::list_layouts} to see the available layouts."
     )
     cli::cli_abort(bullets, call = error_call)
   }
@@ -145,7 +145,7 @@ as_slide_layout <- function(layout, pptx, error_call = caller_env()){
     cli_abort(c(
       "Layout {.val {layout}} not found in presentation {.val {pptx$name}}.",
       i = "{.arg layout} must be one of {.val {candidates}}.",
-      i = "Run {.fn mirage::list_layouts} for more information about each available layout."
+      i = "Run {.fn powerup::list_layouts} for more information about each available layout."
     ), call = error_call)
   }
 
