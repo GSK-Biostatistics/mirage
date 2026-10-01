@@ -283,7 +283,7 @@ extract_dimensions <- function(x) {
     cy <- as.numeric(xml_attr_or_na(a_ext, "cy"))
   }
 
-  lst(off_x = offx, off_y = offy, cx = cx, cy = cy)
+  list(`offx` = offx, `offy` = offy, `cx` = cx, `cy` = cy)
 }
 
 
