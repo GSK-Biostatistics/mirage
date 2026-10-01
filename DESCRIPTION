@@ -1,5 +1,5 @@
 Package: powerup
-Title: Add Vision to PowerPoint Presentations
+Title: Power Up Your PowerPoint Presentations
 Version: 0.3.1
 Authors@R: c(
       person("Ellis", "Hughes", email = "ellis.h.hughes@gsk.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-0637-4436")), 
