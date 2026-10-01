@@ -50,7 +50,9 @@
 #'
 #' remove_content(ph = ph_title())
 #' remove_content(ph = ref_placeholder(label = "An Existing Placeholder"))
-
+#' 
+#' @return a `powerup_content` object for [content()] and a `remove_powerup_content` object for [remove_content()]
+#' 
 #' @export
 #' @rdname content
 
@@ -67,7 +69,7 @@ content <- function(value, ph = ph_body(), metadata = NULL, ..., group_contents 
       metadata       = metadata,
       group_contents = group_contents
     ),
-    class = "mirage_content"
+    class = "powerup_content"
   )
 }
 
@@ -76,17 +78,17 @@ content <- function(value, ph = ph_body(), metadata = NULL, ..., group_contents 
 remove_content <- function(ph, error_call = current_env()){
   if(inherits(ph,"new_placeholder")){
 
-    ph_funs <- ls(pattern = "^ph_", asNamespace("mirage"))
+    ph_funs <- ls(pattern = "^ph_", asNamespace("powerup"))
 
     cli_abort(c(
         "Attempting to remove a new placeholder is not valid.",
-        i = "Only use {.fn mirage::remove_content} to remove existing placeholders on the slide.",
+        i = "Only use {.fn powerup::remove_content} to remove existing placeholders on the slide.",
         i = "Use of the the predefined templated functions {.fn {ph_funs}}.",
-        i = "... or create a reference to an exising placeholder with {.code mirage::ref_placeholder(label = 'placeholder label')}."
+        i = "... or create a reference to an exising placeholder with {.code powerup::ref_placeholder(label = 'placeholder label')}."
       ),call = error_call)
   }
   x <- content(NULL, ph, replace = TRUE, error_call = error_call)
-  class(x) <- c("remove_mirage_content", "mirage_content")
+  class(x) <- c("remove_powerup_content", "powerup_content")
   x
 }
 
@@ -101,12 +103,12 @@ check_metadata <- function(metadata, error_call = caller_env()) {
 
 check_placeholder <- function(ph, error_call = caller_env()) {
   if (!inherits(ph, "placeholder")) {
-    ph_funs <- ls(pattern = "^ph_", asNamespace("mirage"))
+    ph_funs <- ls(pattern = "^ph_", asNamespace("powerup"))
 
     cli_abort(c(
       "{.arg ph} must be a placeholder, not {.obj_type_friendly {ph}}.",
       i = "Use of the the predefined templated functions {.fn {ph_funs}}.",
-      i = "... or create your own placeholder with {.fn mirage::ref_placeholder} or {.fn mirage::new_placeholder}."
+      i = "... or create your own placeholder with {.fn powerup::ref_placeholder} or {.fn powerup::new_placeholder}."
     ), call = error_call)
   }
 }
@@ -119,7 +121,7 @@ check_group_contents <- function(group, error_call = caller_env()){
   }
 }
 
-check_mirage_content <- function(..., error_call = caller_env()) {
+check_powerup_content <- function(..., error_call = caller_env()) {
 
   ## quo the ... to get the passed content to evaluate for error messages
   content_list_quo <- rlang::quos(...)
@@ -135,19 +137,19 @@ check_mirage_content <- function(..., error_call = caller_env()) {
           i = "Error message: {e$message}"
         ),
         call = error_call,
-        class = "mirage_content_eval_error"
+        class = "powerup_content_eval_error"
         )
       }
     )
 
-    if (!inherits(x, "mirage_content")) {
+    if (!inherits(x, "powerup_content")) {
       cli_abort(c(
-        "All elements of {.arg ...} must be marked as mirage content.",
+        "All elements of {.arg ...} must be marked as powerup content.",
         x = "Element at position {i} is {.obj_type_friendly {x}}.",
-        i = "You can create mirage content with {.fn mirage::content}."
+        i = "You can create powerup content with {.fn powerup::content}."
       ),
        call = error_call,
-       class = "mirage_content_type_error"
+       class = "powerup_content_type_error"
       )
     }
 

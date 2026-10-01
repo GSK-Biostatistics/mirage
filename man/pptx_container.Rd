@@ -29,7 +29,7 @@ mentioned in error messages as the source of the error. See the
 }
 \value{
 \code{load_pptx()} returns a new \code{pptx_container} object that wraps objects
-created by \code{\link[officer:read_pptx]{officer::read_pptx()}} with custom functionality for mirage.
+created by \code{\link[officer:read_pptx]{officer::read_pptx()}} with custom functionality for powerup.
 }
 \description{
 Load/Save a PowerPoint file
@@ -39,7 +39,7 @@ Load/Save a PowerPoint file
 }
 \examples{
 
-pptx <- load_pptx(system.file("ref_files/standard_powerpoint.pptx", package = "mirage"))
+pptx <- load_pptx(system.file("ref_files/standard_powerpoint.pptx", package = "powerup"))
 
 pptx2<- load_pptx()
 

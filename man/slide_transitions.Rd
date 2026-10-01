@@ -85,7 +85,7 @@ slide_transition_null()
 \arguments{
 \item{type}{string defining the slide transition type}
 
-\item{transition_type_xml}{string defining the OOXML of the transition type}
+\item{transition_type_xml}{string defining the 'OOXML' of the transition type}
 
 \item{speed}{speed of the slide transition - med, fast, or slow}
 
@@ -105,6 +105,9 @@ black screen and then transitions to new slide over black}
 
 \item{zoom, split}{specify the direction of zoom, "in" or "out"}
 }
+\value{
+a \code{slide_transition} object for the defined transition, or a \code{slide_transition_null} object for no transition or removing a transition. The \code{slide_transition} object can be added to a slide via \code{\link[=add_slide]{add_slide()}} or \code{\link[=update_slide]{update_slide()}}.
+}
 \description{
 Slide transitions define the transition to show when moving to the slide.
 \code{\link[=slide_transition_generic]{slide_transition_generic()}} allows the user to create and pass new types of
@@ -116,19 +119,21 @@ other assets the transition may need.
 
 pptx <- example_pptx()
 
+checker_transition <- slide_transition_checker()
+dissolve_transition <- slide_transition_dissolve()
+
 ## add a transition to a new slide
 pptx <- pptx |>
    add_slide(
      layout = "Title and Content",
-     transition = slide_transition_checker()
+     transition = checker_transition
    )
 
 ## Update/add transition to n existing slide
 pptx <- pptx |>
    update_slide(
      index = 1,
-     transition = slide_transition_dissolve()
+     transition = dissolve_transition
    )
-
 
 }

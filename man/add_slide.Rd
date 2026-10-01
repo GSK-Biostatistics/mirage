@@ -29,7 +29,7 @@ update_slide(
   transition = NULL,
   polish_error_continue = TRUE,
   error_call = current_env(),
-  verbose = getOption("mirage.verbose", default = TRUE)
+  verbose = getOption("powerup.verbose", default = TRUE)
 )
 }
 \arguments{
@@ -59,6 +59,9 @@ mentioned in error messages as the source of the error. See the
 \item{verbose}{if TRUE, some information is \code{\link[cli:cli_inform]{cli::cli_inform()}}ed along the
 way}
 }
+\value{
+a \code{pptx_container} object with the slide added, updated, moved, or deleted
+}
 \description{
 \code{add_slide()} Adds a new slide at a specified position, and
 populate it with content from \code{...}.
@@ -68,5 +71,42 @@ it with content from \code{...}.
 
 \code{move_slide()} moves the slide from one index to another.
 
-\code{remove_slide()} deletes the slide based on the index.
+\code{delete_slide()} deletes the slide based on the index.
+}
+\examples{
+
+library(powerup)
+
+## Create a new presentation
+ppt <- load_pptx()
+
+## adding new slides
+ppt <- ppt |>
+  ## add first slide with content in title
+  add_slide(layout = "Title and Content", 
+    content("hello world", ph = ph_title())
+  ) |>
+  ## add another slide with nothing on it yet
+  add_slide(layout = "Title and Content") |> 
+  ## slide added at index 2 with content in title and body
+  add_slide(layout = "Title and Content", 
+    index = 2, 
+    content("Hello World", ph = ph_title()), 
+    content("This is a body", ph = ph_body())
+  )
+ 
+## updating an existing slide wit new content
+ppt <- ppt |>
+   update_slide(index = 1, 
+     content("This placeholder now has a value", ph = ph_body())
+   )
+
+## moving a slide from index 2 to index 1
+ppt <- ppt |>
+   move_slide(index = 2, to = 1)
+
+## deleting a slide at index 3
+ppt <- ppt |>
+   delete_slide(index = 3)
+
 }

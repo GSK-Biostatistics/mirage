@@ -100,7 +100,7 @@ test_that("layout_ph_df() x layouts from template", {
 })
 
 test_that("read_one_slide_placeholders() handle ph_id=NA (#51)", {
-  rlang::local_options(mirage.verbose = FALSE)
+  rlang::local_options(powerup.verbose = FALSE)
   pptx <- load_pptx() |> add_slide(index = 1, layout = "Title Slide") |>
     update_slide(
       index = 1,
@@ -110,7 +110,7 @@ test_that("read_one_slide_placeholders() handle ph_id=NA (#51)", {
         y_offset = "28%",
         width = "44%",
         height = "67%",
-        label = "mirage_body_left_placeholder 1"
+        label = "powerup_body_left_placeholder 1"
       ))
     )
 
@@ -123,7 +123,7 @@ test_that("read_one_slide_placeholders() handle ph_id=NA (#51)", {
 
 
 test_that("read_one_slide_placeholders() handle content(metadata=)", {
-  rlang::local_options(mirage.verbose = FALSE)
+  rlang::local_options(powerup.verbose = FALSE)
   pptx <- load_pptx() |> add_slide(index = 1, layout = "Title Slide") |>
     update_slide(
       index = 1,
@@ -133,7 +133,7 @@ test_that("read_one_slide_placeholders() handle content(metadata=)", {
         y_offset = "28%",
         width = "44%",
         height = "67%",
-        label = "mirage_body_left_placeholder 1"
+        label = "powerup_body_left_placeholder 1"
       ))
     )
 

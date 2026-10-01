@@ -1,6 +1,6 @@
 #' @rdname add_slide
 #' @export
-update_slide <- function(pptx, index, ..., transition = NULL, polish_error_continue = TRUE, error_call = current_env(), verbose = getOption("mirage.verbose", default = TRUE)){
+update_slide <- function(pptx, index, ..., transition = NULL, polish_error_continue = TRUE, error_call = current_env(), verbose = getOption("powerup.verbose", default = TRUE)){
   # Check initial values ---
   check_slidenum(pptx, index, error_call = error_call)
   pptx <- remove_pptx_error(pptx = pptx, index = index)
@@ -9,7 +9,7 @@ update_slide <- function(pptx, index, ..., transition = NULL, polish_error_conti
   if (n) {
 
     content_list <- tryCatch(
-      check_mirage_content(..., error_call = error_call),
+      check_powerup_content(..., error_call = error_call),
       error = function(e) {
         ## save error to pptx object so it can be retrieved later
         add_pptx_error(pptx, index = index, error = e)
@@ -19,7 +19,7 @@ update_slide <- function(pptx, index, ..., transition = NULL, polish_error_conti
 
     if (!is.null(content_list)) {
       if (isTRUE(verbose)) {
-        n_remove <- sum(sapply(content_list, inherits, "remove_mirage_content"))
+        n_remove <- sum(sapply(content_list, inherits, "remove_powerup_content"))
 
         if (n_remove == 0) {
           action <- "add"
@@ -30,15 +30,15 @@ update_slide <- function(pptx, index, ..., transition = NULL, polish_error_conti
         }
 
         if (verbose) {
-          mirage_inform(
-            c(">" = "mirage to {action} {n} content{?s} at slide {index}."),
-            class = "mirage_slide_inform"
+          powerup_inform(
+            c(">" = "powerup to {action} {n} content{?s} at slide {index}."),
+            class = "powerup_slide_inform"
           )
         }
       }
 
       for (content in content_list){
-        pptx <- add_mirage_content_to_slide(
+        pptx <- add_powerup_content_to_slide(
           pptx = pptx,
           index = index,
           content = content,
@@ -54,7 +54,7 @@ update_slide <- function(pptx, index, ..., transition = NULL, polish_error_conti
   }
 
   if (is_slide_transition(transition)){
-    pptx <- add_mirage_slide_transition_to_slide(
+    pptx <- add_powerup_slide_transition_to_slide(
       pptx, index, transition
     )
     save_slides(pptx)
@@ -75,7 +75,7 @@ check_slidenum <- function(pptx, index, error_call = current_env()) {
 
   if (sldlen < 1) {
     cli_abort("Presentation contains no slides.",
-      class = "mirage_invalid_slide_index", call = error_call
+      class = "powerup_invalid_slide_index", call = error_call
     )
   }
 
@@ -83,11 +83,11 @@ check_slidenum <- function(pptx, index, error_call = current_env()) {
     cli_abort(c(
       "Invalid slide index: {index}.",
       i = "The document has {sldlen} slide{?s}."
-    ), class = "mirage_invalid_slide_index", call = error_call)
+    ), class = "powerup_invalid_slide_index", call = error_call)
   }
 }
 
-add_mirage_content_to_slide <- function(pptx, index, content, polish_error_continue = TRUE, error_call = current_env(), verbose = getOption("mirage.verbose", default = TRUE)){
+add_powerup_content_to_slide <- function(pptx, index, content, polish_error_continue = TRUE, error_call = current_env(), verbose = getOption("powerup.verbose", default = TRUE)){
   # save the slides before doing anything
   save_slides(pptx)
 
@@ -123,7 +123,7 @@ add_mirage_content_to_slide <- function(pptx, index, content, polish_error_conti
     }
 
     # polish it
-    polished <- mirage_polish_content(content, ph = ph_xml, pptx = pptx)
+    polished <- powerup_polish_content(content, ph = ph_xml, pptx = pptx)
 
     if(!is.null(polished)){
       if(content$group_content & length(polished) > 1){
@@ -163,7 +163,7 @@ add_mirage_content_to_slide <- function(pptx, index, content, polish_error_conti
         cli_abort(c(
           "Cannot create a new placeholder with the existing label {.val {slide_ph_name}}.",
           i = "Choose a label that is not already in use."
-        ),call = error_call, class = "mirage_ph_unique_error")
+        ),call = error_call, class = "powerup_ph_unique_error")
       }
     }
 
@@ -183,9 +183,9 @@ add_mirage_content_to_slide <- function(pptx, index, content, polish_error_conti
         success_text <- "Successfully added content to placeholder {.val {label}}."
       }
 
-      mirage_inform(
+      powerup_inform(
         c("v" = success_text),
-        class = "mirage_adding_content_message"
+        class = "powerup_adding_content_message"
       )
     }
   }, error = function(e) {
@@ -202,22 +202,22 @@ add_mirage_content_to_slide <- function(pptx, index, content, polish_error_conti
       )
     }
 
-    if (inherits(e, "mirage_polish_failure") && polish_error_continue) {
+    if (inherits(e, "powerup_polish_failure") && polish_error_continue) {
       if (isTRUE(verbose)) {
         bullets <- c(
           x = "Failed to {.emph polish} content of class {.cls {class(content$value)}} for slide {index}."
         )
-        mirage_inform(bullets, class = "mirage_polish_inform", parent = e)
+        powerup_inform(bullets, class = "powerup_polish_inform", parent = e)
       }
-    } else if (inherits(e, "mirage_polish_ph_failure") && polish_error_continue) {
+    } else if (inherits(e, "powerup_polish_ph_failure") && polish_error_continue) {
       if (isTRUE(verbose)) {
         bullets <- c(
           x = "Failed to {.emph get placeholder} for content on slide {index}.",
           bullets_placeholder
         )
-        mirage_inform(bullets, class = "mirage_polished_ph_inform", parent = e)
+        powerup_inform(bullets, class = "powerup_polished_ph_inform", parent = e)
       }
-    } else if (inherits(e, "mirage_ph_unique_error")) {
+    } else if (inherits(e, "powerup_ph_unique_error")) {
       cnd_signal(e)
     } else {
 

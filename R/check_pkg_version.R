@@ -7,7 +7,11 @@
 #' @param version version that is expected
 #'
 #' @importFrom utils packageVersion
-#' @export
+#' 
+#' @examples
+#' check_pkg_version("powerup", "0.3.1")
+#' 
+#' @noRd
 check_pkg_version <- function(pkg, version) {
   if (packageVersion(pkg) < version) {
     cli::cli_inform(c(

@@ -23,12 +23,15 @@ list_placeholders(
 \item{units}{"in" or "cm", what units should be used for the values presented
 (offsets, dimensions)}
 
-\item{keep_all}{Keep all the placeholders (TRUE), or only the ons with a \if{html}{\out{<ph>}} node (FALSE)}
+\item{keep_all}{Keep all the placeholders (TRUE), or only the ons with a \<ph\> node (FALSE)}
 
 \item{error_call}{The execution environment of a currently
 running function, e.g. \code{caller_env()}. The function will be
 mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
+}
+\value{
+a \code{placeholder_tbl} object with the available placeholders in the slide or layout
 }
 \description{
 List the available placeholders in a slide or a given layout

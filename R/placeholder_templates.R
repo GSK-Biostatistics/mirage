@@ -19,6 +19,21 @@
 #' @inheritParams rlang::args_error_context
 #'
 #' @rdname ph_templates
+#' 
+#' @examples
+#' ## create a new placeholder with a label of "my_placeholder"
+#' templated_placeholder(
+#'   preferred = ref_placeholder(label = "title", type = "title"),
+#'   fallback = new_placeholder(label = "my_placeholder", 
+#'                               type = "body",
+#'                               x_offset = "5%",
+#'                               width = "90%", 
+#'                               y_offset = "5%", 
+#'                               height = "12.5%"
+#'   )
+#' )
+#'  
+#' @return a `templated_placeholder` object 
 #'
 #' @export
 templated_placeholder <- function(preferred, fallback, error_call = current_env()){
@@ -76,7 +91,7 @@ ph_title <- function(replace = TRUE) {
       width       = "90%",
       y_offset    = "5%",
       height      = "12.5%",
-      label       = "mirage_title_placeholder"
+      label       = "powerup_title_placeholder"
     )
   )
 }
@@ -99,7 +114,7 @@ ph_subtitle <- function(replace = TRUE) {
       width       = "90%",
       y_offset    = "17.5%",
       height      = "7.5%",
-      label       = "mirage_subtitle_placeholder"
+      label       = "powerup_subtitle_placeholder"
     )
   )
 }
@@ -122,7 +137,7 @@ ph_body <- function(replace = TRUE) {
       width       = "90%",
       y_offset    = "27.5%",
       height      = "67.5%",
-      label       = "mirage_body_placeholder"
+      label       = "powerup_body_placeholder"
     )
   )
 }
@@ -145,7 +160,7 @@ ph_body_left <- function(replace = TRUE) {
       width       = "43.75%",
       y_offset    = "27.5%",
       height      = "67.5%",
-      label       = "mirage_body_left_placeholder"
+      label       = "powerup_body_left_placeholder"
     )
   )
 }
@@ -168,7 +183,7 @@ ph_body_right <- function(replace = TRUE) {
       width       = "43.75%",
       y_offset    = "27.5%",
       height      = "67.5%",
-      label       = "mirage_body_right_placeholder"
+      label       = "powerup_body_right_placeholder"
     )
   )
 }
@@ -191,7 +206,7 @@ ph_footer <- function(replace = TRUE) {
       width       = "43.75%",
       y_offset    = "92.5%",
       height      = "5%",
-      label       = "mirage_footer_left_placeholder"
+      label       = "powerup_footer_left_placeholder"
     )
   )
 }
@@ -214,7 +229,7 @@ ph_footer_left <- function(replace = TRUE) {
       width       = "43.75%",
       y_offset    = "92.5%",
       height      = "5%",
-      label       = "mirage_footer_left_placeholder"
+      label       = "powerup_footer_left_placeholder"
     )
   )
 }
@@ -237,7 +252,7 @@ ph_footer_right <- function(replace = TRUE) {
       width        = "43.75%",
       y_offset     = "92.5%",
       height       = "5%",
-      label        = "mirage_footer_right_placeholder"
+      label        = "powerup_footer_right_placeholder"
     )
   )
 }

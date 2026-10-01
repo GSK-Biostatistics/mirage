@@ -373,14 +373,24 @@ select_ph_tie_breaker <- function(df, tie_breaker = c("largest", "smallest", "le
 
 #' Remove placeholder from a slide
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param ph_id placeholder id
 #' @param index index of slide
 #' @param verbose inform about the removed placeholders
 #' @inheritParams rlang::args_error_context
+#' 
+#' @examples
+#' pptx <- load_pptx() |>
+#'   add_slide(layout = "Title and Content", index = 1, content("hello", ph = ph_title()))
+#' 
+#' ## remove the placeholder from the slide
+#' pptx <- remove_slide_ph(pptx, 
+#'           index = 1, 
+#'           ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1]
+#'         )
 #'
 #' @export
-remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verbose = getOption("mirage.verbose", default = FALSE)) {
+remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verbose = getOption("powerup.verbose", default = FALSE)) {
 
   if (is.na(ph_id)) {
     cli_abort("Cannot remove a placeholder with {.code ph_id = NA}.", call = error_call)
@@ -406,7 +416,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
   }
 
   if (isTRUE(verbose)) {
-    mirage_inform(c(
+    powerup_inform(c(
       "i" = "Removing placeholder {.val {ph_id}} from presentation {.val {pptx$name}} / slide {index}."
     ))
   }
@@ -418,12 +428,12 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 
 #' List the available placeholders in a slide or a given layout
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param index Slide index
 #' @param layout the name of the layout in the powerpoint. Overridden if index is provided
 #' @param units "in" or "cm", what units should be used for the values presented
 #'   (offsets, dimensions)
-#' @param keep_all Keep all the placeholders (TRUE), or only the ons with a <ph> node (FALSE)
+#' @param keep_all Keep all the placeholders (TRUE), or only the ons with a \<ph\> node (FALSE)
 #' @inheritParams rlang::args_error_context
 #'
 #' @examples
@@ -433,6 +443,8 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 #' # what are the available placeholders on the slides
 #' list_placeholders(pptx, layout = "Two Content")
 #' list_placeholders(pptx, index = 2)
+#' 
+#' @return a `placeholder_tbl` object with the available placeholders in the slide or layout
 #'
 #' @export
 list_placeholders <- function(pptx, index = NULL, layout = NULL, units = c("in","cm"), keep_all = FALSE, error_call = current_env()){
@@ -658,6 +670,7 @@ get_layout_name <- function(pptx, index, error_call = caller_env()) {
 #' @param pptx Powerpoint file
 #' @inheritParams rlang::args_error_context
 #' @return character vector of layout names
+#' @noRd
 get_layout_names <- function(pptx, error_call = current_env()) {
   out <- list_slides(pptx, error_call = error_call)$layout_name
   names(out) <- NULL
@@ -666,7 +679,7 @@ get_layout_names <- function(pptx, error_call = current_env()) {
 
 #' Checks the given layout is valid
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param layout Type of layout to apply. Must match one of the available layouts or NULL.
 #'
 #' @noRd

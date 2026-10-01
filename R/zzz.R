@@ -6,7 +6,7 @@
 #' @importFrom tools file_ext
 #' @importFrom purrr map map_chr walk map_dfr list_rbind map_int imap
 #' @importFrom dplyr mutate left_join bind_rows select across case_when full_join na_if filter slice rename ends_with arrange anti_join nest_by pull summarise group_by everything pick n ungroup desc
-#' @importFrom tibble tibble as_tibble lst
+#' @importFrom tibble tibble as_tibble
 #' @importFrom utils capture.output str
 #' @importFrom glue glue glue_collapse
 #' @importFrom htmltools tag
@@ -33,11 +33,11 @@ utils::globalVariables(
   )
 )
 
-#' Documentation anchor for mirage functions
+#' Documentation anchor for powerup functions
 #'
-#' Use `@inheritParams mirage::args_mirage` to document `pptx` for your functions
+#' Use `@inheritParams powerup::args_powerup` to document `pptx` for your functions
 #'
 #' @param pptx A Powerpoint wrapped in a <pptx_container> object. see [load_pptx()]
 #'
-#' @name args_mirage
+#' @name args_powerup
 NULL

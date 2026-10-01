@@ -1,4 +1,4 @@
-add_mirage_slide_transition_to_slide <- function(pptx, index, transition){
+add_powerup_slide_transition_to_slide <- function(pptx, index, transition){
 
   # save the slides before doing anything
   save_slides(pptx)
@@ -33,7 +33,7 @@ add_mirage_slide_transition_to_slide <- function(pptx, index, transition){
 #' other assets the transition may need.
 #'
 #' @param type string defining the slide transition type
-#' @param transition_type_xml string defining the OOXML of the transition type
+#' @param transition_type_xml string defining the 'OOXML' of the transition type
 #' @param speed speed of the slide transition - med, fast, or slow
 #' @param orientation specify "horz" or "vert", defining the orientation of a
 #'   transition
@@ -50,23 +50,29 @@ add_mirage_slide_transition_to_slide <- function(pptx, index, transition){
 #' @examples
 #'
 #' pptx <- example_pptx()
+#' 
+#' checker_transition <- slide_transition_checker()
+#' dissolve_transition <- slide_transition_dissolve()
 #'
 #' ## add a transition to a new slide
 #' pptx <- pptx |>
 #'    add_slide(
 #'      layout = "Title and Content",
-#'      transition = slide_transition_checker()
+#'      transition = checker_transition
 #'    )
 #'
 #' ## Update/add transition to n existing slide
 #' pptx <- pptx |>
 #'    update_slide(
 #'      index = 1,
-#'      transition = slide_transition_dissolve()
+#'      transition = dissolve_transition
 #'    )
-#'
+#' 
+#' @return a `slide_transition` object for the defined transition, or a `slide_transition_null` object for no transition or removing a transition. The `slide_transition` object can be added to a slide via [add_slide()] or [update_slide()].
 #'
 #' @export
+#' 
+#' 
 #'
 #' @rdname slide_transitions
 slide_transition_generic <- function(type, transition_type_xml, speed = c("med","fast","slow")){

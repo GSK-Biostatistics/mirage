@@ -9,7 +9,7 @@ remove_slide_ph(
   ph_id,
   index,
   error_call = current_env(),
-  verbose = getOption("mirage.verbose", default = FALSE)
+  verbose = getOption("powerup.verbose", default = FALSE)
 )
 }
 \arguments{
@@ -28,4 +28,15 @@ mentioned in error messages as the source of the error. See the
 }
 \description{
 Remove placeholder from a slide
+}
+\examples{
+pptx <- load_pptx() |>
+  add_slide(layout = "Title and Content", index = 1, content("hello", ph = ph_title()))
+
+## remove the placeholder from the slide
+pptx <- remove_slide_ph(pptx, 
+          index = 1, 
+          ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1]
+        )
+
 }

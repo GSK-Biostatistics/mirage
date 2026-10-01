@@ -10,7 +10,7 @@
 #' metadata(c(foo = "abc", bar = "def"))
 #'
 #' @export
-metadata <- function(data, uri = "r://package/mirage", error_call = current_env()) {
+metadata <- function(data, uri = "r://package/powerup", error_call = current_env()) {
   properties <- as_properties(data, error_call = error_call)
 
   tags <- p$extLst(
@@ -24,7 +24,14 @@ metadata <- function(data, uri = "r://package/mirage", error_call = current_env(
 #' @param metadata named character vector
 #' @param name name of element to extract
 #' @param empty synonyms for ""
-#'
+#' 
+#' @examples
+#' m <- c(foo = "abc", bar = "def")
+#' extract_metadata_element(m, name = "foo")
+#' extract_metadata_element(m, name = "bar", empty = "def") ## return ""
+#' 
+#' @return the value of the metadata element, or "" if not found 
+#' 
 #' @export
 extract_metadata_element <- function(metadata, name = "name", empty = "<display>") {
   if (name %in% names(metadata)) {
@@ -54,7 +61,7 @@ p <- list(
     tag("p:extLst", dots_list(...))
   },
 
-  ext = function(..., uri = "r://package/mirage", error_call = caller_env()) {
+  ext = function(..., uri = "r://package/powerup", error_call = caller_env()) {
     check_is_scalar_string(uri, error_call = error_call)
     tag("p:ext", list2(uri = uri, ...))
   }

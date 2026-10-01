@@ -48,10 +48,11 @@ make_ph_shape <- function(ph, pptx){
 #' Internal method for processing placeholder requests
 #'
 #' @param ph placeholder
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param index Slide number
 #' @inheritParams rlang::args_dots_empty
 #' @inheritParams rlang::args_error_context
+#' @noRd
 process_placeholder <- function(ph, pptx, index, ..., error_call = current_env()){
   UseMethod("process_placeholder")
 }
@@ -64,7 +65,7 @@ try_process_placeholder <- function(ph, pptx, index, ..., error_call = current_e
   }, error = function(e) {
     cli_abort(
       "Failed to process placeholder.",
-      parent = e, class = "mirage_polish_ph_failure", call = error_call
+      parent = e, class = "powerup_polish_ph_failure", call = error_call
     )
   })
 }

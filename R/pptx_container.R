@@ -4,15 +4,15 @@
 #' @param path output path of file to be saved
 #' @param name name of the file
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @inheritParams rlang::args_error_context
 #'
 #' @return `load_pptx()` returns a new `pptx_container` object that wraps objects
-#'  created by [officer::read_pptx()] with custom functionality for mirage.
+#'  created by [officer::read_pptx()] with custom functionality for powerup.
 #'
 #' @examples
 #'
-#' pptx <- load_pptx(system.file("ref_files/standard_powerpoint.pptx", package = "mirage"))
+#' pptx <- load_pptx(system.file("ref_files/standard_powerpoint.pptx", package = "powerup"))
 #'
 #' pptx2<- load_pptx()
 #'
@@ -40,12 +40,12 @@ new_pptx_container <- function(pptx, name, error_call = caller_env()) {
   )
 }
 
-increment_revision <- function(pptx, verbose = getOption("mirage.verbose", default = FALSE)) {
+increment_revision <- function(pptx, verbose = getOption("powerup.verbose", default = FALSE)) {
   pptx$revision <- pptx$revision + 1L
   if (isTRUE(verbose)) {
     filename <- pptx$rpptx$presentation$file_name()
     revision <- pptx$revision
-    mirage_inform(c(
+    powerup_inform(c(
       v = "Updated revision to {revision} for presentation {.file {filename}}."
     ))
   }
@@ -76,10 +76,10 @@ print.pptx_container <- function(x, ...) {
   cli_text("{.cls pptx_container} with {length(x)} slide{?s}.")
 
   layouts <- x$rpptx$slideLayouts$names()
-  mirage_inform(c(
+  powerup_inform(c(
     i = "Available layouts: {.val {layouts}}.",
     i = "Use {.code list_placeholders(index = )} or {.code list_placeholders(layout = )} to get information about available placeholders",
-    i = "Use {.fn mirage::add_slide} or {.fn mirage::update_slide} to add content to new or existing slides"
+    i = "Use {.fn powerup::add_slide} or {.fn powerup::update_slide} to add content to new or existing slides"
   ))
 
   invisible(x)
@@ -171,5 +171,5 @@ example_pptx <- function() {
 
   ppt$slide$save_slides()
 
-  new_pptx_container(ppt, name = "mirage-example.pptx")
+  new_pptx_container(ppt, name = "powerup-example.pptx")
 }

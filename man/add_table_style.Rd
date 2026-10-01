@@ -7,7 +7,7 @@
 add_table_style(
   pptx,
   table_style,
-  verbose = getOption("mirage.verbose", default = FALSE),
+  verbose = getOption("powerup.verbose", default = FALSE),
   error_call = caller_env()
 )
 }
@@ -23,8 +23,17 @@ running function, e.g. \code{caller_env()}. The function will be
 mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
+\value{
+a \code{pptx_container} object with the new table style added
+}
 \description{
 Given a provided table style, add it to the tableStyle file in the document.
 this makes it available to tables that get added to the powerpoint as a table
 style option
+}
+\examples{
+pptx <- example_pptx()
+table_style <- new_table_style("My New Style")
+pptx <- add_table_style(pptx, table_style) #' 
+
 }

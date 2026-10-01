@@ -1,16 +1,20 @@
-Package: mirage
-Title: Add vision to PowerPoint Presentations
+Package: powerup
+Title: Power Up Your PowerPoint Presentations
 Version: 0.3.1
 Authors@R: c(
-      person("Ellis", "Hughes", email = "ellis.h.hughes@gsk.com", role = c("aut", "cre")), 
+      person("Ellis", "Hughes", email = "ellis.h.hughes@gsk.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-0637-4436")), 
       person("Shannon", "Haughton", email = "shannon.l.haughton@gsk.com", role = "aut"),
       person("Romain", "François", email = "romain@tada.science", role = "aut"), 
       person("GlaxoSmithKline Research & Development Limited", role = c("cph", "fnd"))
     )
-Description: Insert displays into 'Microsoft PowerPoint' documents at specific 
-    locations in slides. Add new slides or update previous slides with displays,
-    pointing to specific placeholders or create new ones.
+Description: Programmatically interact with new or existing 'Microsoft PowerPoint' documents,
+    by adding new slides, updating existing slides, and inserting displays into specific locations in slides.
+    Users can also add transition effects to slides, and add displays to specific
+    locations in slides by pointing to specific placeholders or creating new ones.
+    Preview the slides in a local viewer.
 License: Apache License (>= 2)
+URL: https://gsk-biostatistics.github.io/powerup/, https://github.com/GSK-Biostatistics/powerup/
+BugReports: https://github.com/GSK-Biostatistics/powerup/issues/
 Depends:
     R (>= 4.1.0),
     polish (>= 0.2.0)
@@ -37,7 +41,5 @@ Suggests:
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-Remotes:
-  GSK-Biostatistics/polish
 VignetteBuilder: knitr
 Config/roxygen2/version: 8.0.0

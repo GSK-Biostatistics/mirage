@@ -9,6 +9,14 @@ get_table_styles(pptx)
 \arguments{
 \item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 }
+\value{
+A data frame with columns \code{style_id} and \code{style_name} for each table style in the presentation.
+}
 \description{
 List the available table styles within the document
+}
+\examples{
+pptx <- example_pptx()
+get_table_styles(pptx) 
+
 }

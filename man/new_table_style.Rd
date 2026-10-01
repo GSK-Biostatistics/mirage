@@ -49,6 +49,13 @@ running function, e.g. \code{caller_env()}. The function will be
 mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
+\value{
+An xml_node that defines a tblStyle. Added to a powerpoint via add_table_style().
+}
 \description{
 Helper function to make it simple to define a table style node.
+}
+\examples{
+example_table_style <- new_table_style("Example Style", text_color = "blue", border_color = "pink")
+
 }

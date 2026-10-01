@@ -8,10 +8,10 @@
 #'
 #' `move_slide()` moves the slide from one index to another.
 #'
-#' `remove_slide()` deletes the slide based on the index.
+#' `delete_slide()` deletes the slide based on the index.
 #'
 #'
-#' @inheritParams args_mirage
+#' @inheritParams args_powerup
 #' @param layout slide layout to use when creating a slide in `add_slide()`
 #' @param ... content objects created with [content()]
 #' @param index slide index. By default `add_slide()` creates a new slide at the
@@ -27,6 +27,44 @@
 #' @inheritParams rlang::args_error_context
 #' @param verbose if TRUE, some information is [cli::cli_inform()]ed along the
 #'   way
+#' 
+#' @examples
+#' 
+#' library(powerup)
+#' 
+#' ## Create a new presentation
+#' ppt <- load_pptx()
+#' 
+#' ## adding new slides
+#' ppt <- ppt |>
+#'   ## add first slide with content in title
+#'   add_slide(layout = "Title and Content", 
+#'     content("hello world", ph = ph_title())
+#'   ) |>
+#'   ## add another slide with nothing on it yet
+#'   add_slide(layout = "Title and Content") |> 
+#'   ## slide added at index 2 with content in title and body
+#'   add_slide(layout = "Title and Content", 
+#'     index = 2, 
+#'     content("Hello World", ph = ph_title()), 
+#'     content("This is a body", ph = ph_body())
+#'   )
+#'  
+#' ## updating an existing slide wit new content
+#' ppt <- ppt |>
+#'    update_slide(index = 1, 
+#'      content("This placeholder now has a value", ph = ph_body())
+#'    )
+#' 
+#' ## moving a slide from index 2 to index 1
+#' ppt <- ppt |>
+#'    move_slide(index = 2, to = 1)
+#' 
+#' ## deleting a slide at index 3
+#' ppt <- ppt |>
+#'    delete_slide(index = 3)
+#' 
+#' @return a `pptx_container` object with the slide added, updated, moved, or deleted
 #'
 #' @export
 add_slide <- function(pptx, layout, ..., index, transition = NULL, polish_error_continue = TRUE, error_call = current_env()) {
@@ -58,7 +96,7 @@ check_slide_layout <- function(pptx, layout, index, error_call = caller_env()) {
     bullets <- c(
       "The {.arg layout} argument is mandatory.",
       i  = "The suggested layout for index {index} is {.val {suggestion}}.",
-      i = "Use {.fn mirage::list_layouts} to see the available layouts."
+      i = "Use {.fn powerup::list_layouts} to see the available layouts."
     )
     cli::cli_abort(bullets, call = error_call)
   }
@@ -107,7 +145,7 @@ as_slide_layout <- function(layout, pptx, error_call = caller_env()){
     cli_abort(c(
       "Layout {.val {layout}} not found in presentation {.val {pptx$name}}.",
       i = "{.arg layout} must be one of {.val {candidates}}.",
-      i = "Run {.fn mirage::list_layouts} for more information about each available layout."
+      i = "Run {.fn powerup::list_layouts} for more information about each available layout."
     ), call = error_call)
   }
 
