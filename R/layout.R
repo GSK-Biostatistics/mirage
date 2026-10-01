@@ -139,9 +139,9 @@ replace_ph_id_na <- function(data, prefix = "layout") {
 #' @param keep_all if FALSE, only keep non missing placeholders
 #' @inheritParams read_slide_placeholders
 #' @inheritParams rlang::args_error_context
-#' 
+#'
 #' @examples
-#' 
+#'
 #' pptx <- example_pptx()
 #' read_layout_placeholders(pptx, layout = "Title Slide")
 #'
@@ -283,7 +283,7 @@ extract_dimensions <- function(x) {
     cy <- as.numeric(xml_attr_or_na(a_ext, "cy"))
   }
 
-  lst(offx, offy, cx, cy)
+  lst(off_x = offx, off_y = offy, cx = cx, cy = cy)
 }
 
 
