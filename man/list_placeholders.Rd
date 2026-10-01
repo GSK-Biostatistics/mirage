@@ -14,11 +14,11 @@ list_placeholders(
 )
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{index}{Slide index}
 
-\item{layout}{the name of the layout in the powerpoint. Overridden if index is provided}
+\item{layout}{the name of the layout in the PowerPoint. Overridden if index is provided}
 
 \item{units}{"in" or "cm", what units should be used for the values presented
 (offsets, dimensions)}

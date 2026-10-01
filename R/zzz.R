@@ -37,7 +37,7 @@ utils::globalVariables(
 #'
 #' Use `@inheritParams powerup::args_powerup` to document `pptx` for your functions
 #'
-#' @param pptx A Powerpoint wrapped in a <pptx_container> object. see [load_pptx()]
+#' @param pptx A PowerPoint wrapped in a <pptx_container> object. see [load_pptx()]
 #'
 #' @name args_powerup
 NULL

@@ -12,7 +12,7 @@ add_table_style(
 )
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{table_style}{an xml_node that defines a tblStyle. Created by \code{\link[=new_table_style]{new_table_style()}}.}
 
@@ -28,12 +28,12 @@ a \code{pptx_container} object with the new table style added
 }
 \description{
 Given a provided table style, add it to the tableStyle file in the document.
-this makes it available to tables that get added to the powerpoint as a table
+this makes it available to tables that get added to the PowerPoint as a table
 style option
 }
 \examples{
 pptx <- example_pptx()
 table_style <- new_table_style("My New Style")
-pptx <- add_table_style(pptx, table_style) #' 
+pptx <- add_table_style(pptx, table_style) #'
 
 }

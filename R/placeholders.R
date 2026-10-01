@@ -378,14 +378,14 @@ select_ph_tie_breaker <- function(df, tie_breaker = c("largest", "smallest", "le
 #' @param index index of slide
 #' @param verbose inform about the removed placeholders
 #' @inheritParams rlang::args_error_context
-#' 
+#'
 #' @examples
 #' pptx <- load_pptx() |>
 #'   add_slide(layout = "Title and Content", index = 1, content("hello", ph = ph_title()))
-#' 
+#'
 #' ## remove the placeholder from the slide
-#' pptx <- remove_slide_ph(pptx, 
-#'           index = 1, 
+#' pptx <- remove_slide_ph(pptx,
+#'           index = 1,
 #'           ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1]
 #'         )
 #'
@@ -430,7 +430,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 #'
 #' @inheritParams args_powerup
 #' @param index Slide index
-#' @param layout the name of the layout in the powerpoint. Overridden if index is provided
+#' @param layout the name of the layout in the PowerPoint. Overridden if index is provided
 #' @param units "in" or "cm", what units should be used for the values presented
 #'   (offsets, dimensions)
 #' @param keep_all Keep all the placeholders (TRUE), or only the ons with a \<ph\> node (FALSE)
@@ -443,7 +443,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 #' # what are the available placeholders on the slides
 #' list_placeholders(pptx, layout = "Two Content")
 #' list_placeholders(pptx, index = 2)
-#' 
+#'
 #' @return a `placeholder_tbl` object with the available placeholders in the slide or layout
 #'
 #' @export
@@ -612,11 +612,11 @@ ggplot.placeholder_tbl <- function(data, ...) {
     ggplot2::labs(
       title = attr(data, "description")
     )
-  
+
   estimated_area_sorted_data <- data |>
     mutate(area = width * height) |>
     arrange(dplyr::desc(area))
-  
+
   ## add placeholders in size order so that the first ones are on top of the others
    slide_base <- slide_base +
       ggplot2::geom_rect(
@@ -631,7 +631,7 @@ ggplot.placeholder_tbl <- function(data, ...) {
       )
 
   slide_base
-  
+
 }
 
 check_valid_layout_or_index <- function(pptx, layout = NULL, index = NULL, error_call = caller_env()) {
@@ -667,7 +667,7 @@ get_layout_name <- function(pptx, index, error_call = caller_env()) {
 
 #' Get names for all the the slides
 #'
-#' @param pptx Powerpoint file
+#' @inheritParams powerup::args_powerup
 #' @inheritParams rlang::args_error_context
 #' @return character vector of layout names
 #' @noRd

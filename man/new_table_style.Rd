@@ -50,7 +50,7 @@ mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
-An xml_node that defines a tblStyle. Added to a powerpoint via add_table_style().
+An xml_node that defines a tblStyle. Added to a PowerPoint via add_table_style().
 }
 \description{
 Helper function to make it simple to define a table style node.

@@ -63,7 +63,7 @@ remove_pptx_error <- function(pptx, index = NA_integer_) {
 }
 
 #' @details
-#' `slide_errors()` Extract a tibble of errors that occured when adding and updateing slides
+#' `slide_errors()` Extract a tibble of errors that occurred when adding and updating slides
 #'
 #' @rdname pptx_container
 #' @export
