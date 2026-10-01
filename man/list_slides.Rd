@@ -7,7 +7,7 @@
 list_slides(pptx, keep_all = FALSE, error_call = current_env())
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{keep_all}{if FALSE, only keep non missing placeholders}
 

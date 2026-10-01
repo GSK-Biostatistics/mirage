@@ -1,7 +1,7 @@
 
 # read_slide_placeholders() -----------------------------------------------------
 
-#' Read placeholders information from powerpoint presentation
+#' Read placeholders information from PowerPoint presentation
 #'
 #' @inheritParams read_slide
 #' @param only_slide if TRUE only extract placeholders from the slide, i.e. not from its associated layout

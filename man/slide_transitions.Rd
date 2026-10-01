@@ -112,7 +112,7 @@ a \code{slide_transition} object for the defined transition, or a \code{slide_tr
 Slide transitions define the transition to show when moving to the slide.
 \code{\link[=slide_transition_generic]{slide_transition_generic()}} allows the user to create and pass new types of
 transitions. Otherwise, most standard transitions are already defined as
-\verb{slide_transition_*()} to allow the user to easily define a transtion and any
+\verb{slide_transition_*()} to allow the user to easily define a transition and any
 other assets the transition may need.
 }
 \examples{

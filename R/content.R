@@ -15,7 +15,7 @@
 #' @param metadata named character vector of metadata to store in the
 #'   `p:extLst/p:ext/custom:meta/custom:metadata` nodes
 #' @param group_contents boolean indicating if the polished value should be
-#'   shown in the powerpoint as a grouped Sp. The default, and for most cases,
+#'   shown in the PowerPoint as a grouped Sp. The default, and for most cases,
 #'   TRUE.
 #' @param ... Additional arguments forwarded to the [polish::polish_content_pptx()]
 #'   method for `value`'s class. For example, `ggplot` objects accept `height`,
@@ -50,9 +50,9 @@
 #'
 #' remove_content(ph = ph_title())
 #' remove_content(ph = ref_placeholder(label = "An Existing Placeholder"))
-#' 
+#'
 #' @return a `powerup_content` object for [content()] and a `remove_powerup_content` object for [remove_content()]
-#' 
+#'
 #' @export
 #' @rdname content
 

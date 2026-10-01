@@ -29,7 +29,7 @@ add_powerup_slide_transition_to_slide <- function(pptx, index, transition){
 #' Slide transitions define the transition to show when moving to the slide.
 #' [slide_transition_generic()] allows the user to create and pass new types of
 #' transitions. Otherwise, most standard transitions are already defined as
-#' `slide_transition_*()` to allow the user to easily define a transtion and any
+#' `slide_transition_*()` to allow the user to easily define a transition and any
 #' other assets the transition may need.
 #'
 #' @param type string defining the slide transition type
@@ -50,7 +50,7 @@ add_powerup_slide_transition_to_slide <- function(pptx, index, transition){
 #' @examples
 #'
 #' pptx <- example_pptx()
-#' 
+#'
 #' checker_transition <- slide_transition_checker()
 #' dissolve_transition <- slide_transition_dissolve()
 #'
@@ -67,12 +67,12 @@ add_powerup_slide_transition_to_slide <- function(pptx, index, transition){
 #'      index = 1,
 #'      transition = dissolve_transition
 #'    )
-#' 
+#'
 #' @return a `slide_transition` object for the defined transition, or a `slide_transition_null` object for no transition or removing a transition. The `slide_transition` object can be added to a slide via [add_slide()] or [update_slide()].
 #'
 #' @export
-#' 
-#' 
+#'
+#'
 #'
 #' @rdname slide_transitions
 slide_transition_generic <- function(type, transition_type_xml, speed = c("med","fast","slow")){

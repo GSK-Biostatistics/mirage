@@ -32,7 +32,7 @@ method for \code{value}'s class. For example, \code{ggplot} objects accept \code
 \code{\link[polish:polish_content_pptx]{polish::polish_content_pptx()}} for the full list per content type.}
 
 \item{group_contents}{boolean indicating if the polished value should be
-shown in the powerpoint as a grouped Sp. The default, and for most cases,
+shown in the PowerPoint as a grouped Sp. The default, and for most cases,
 TRUE.}
 
 \item{error_call}{The execution environment of a currently

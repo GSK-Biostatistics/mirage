@@ -13,7 +13,7 @@ remove_slide_ph(
 )
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{ph_id}{placeholder id}
 
@@ -34,8 +34,8 @@ pptx <- load_pptx() |>
   add_slide(layout = "Title and Content", index = 1, content("hello", ph = ph_title()))
 
 ## remove the placeholder from the slide
-pptx <- remove_slide_ph(pptx, 
-          index = 1, 
+pptx <- remove_slide_ph(pptx,
+          index = 1,
           ph_id = read_slide_placeholders(pptx, index = 1)$slide_ph_id[1]
         )
 

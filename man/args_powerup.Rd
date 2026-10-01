@@ -4,7 +4,7 @@
 \alias{args_powerup}
 \title{Documentation anchor for powerup functions}
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 }
 \description{
 Use \verb{@inheritParams powerup::args_powerup} to document \code{pptx} for your functions

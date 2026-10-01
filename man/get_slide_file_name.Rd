@@ -7,7 +7,7 @@
 get_slide_file_name(pptx, index, error_call = current_env())
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{index}{slide index}
 

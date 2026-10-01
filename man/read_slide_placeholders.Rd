@@ -2,7 +2,7 @@
 % Please edit documentation in R/layout.R
 \name{read_slide_placeholders}
 \alias{read_slide_placeholders}
-\title{Read placeholders information from powerpoint presentation}
+\title{Read placeholders information from PowerPoint presentation}
 \usage{
 read_slide_placeholders(
   pptx,
@@ -14,7 +14,7 @@ read_slide_placeholders(
 )
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{index}{slide index}
 
@@ -30,7 +30,7 @@ mentioned in error messages as the source of the error. See the
 \code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \description{
-Read placeholders information from powerpoint presentation
+Read placeholders information from PowerPoint presentation
 }
 \examples{
 ppt <- example_pptx()

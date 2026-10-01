@@ -7,7 +7,7 @@
 list_layouts(pptx, error_call = current_env())
 }
 \arguments{
-\item{pptx}{A Powerpoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
+\item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 
 \item{error_call}{The execution environment of a currently
 running function, e.g. \code{caller_env()}. The function will be
