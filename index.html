@@ -5,14 +5,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Add vision to PowerPoint Presentations • mirage</title>
+<title>Power Up Your PowerPoint Presentations • powerup</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Add vision to PowerPoint Presentations">
-<meta property="og:description" content="Insert displays into Microsoft PowerPoint documents at specific locations in slides. Add new slides or update previous slides with displays, pointing to specific placeholders or create new ones.">
+<script src="pkgdown.js"></script><meta property="og:title" content="Power Up Your PowerPoint Presentations">
+<meta property="og:description" content="Programmatically interact with new or existing Microsoft PowerPoint documents, by adding new slides, updating existing slides, and inserting displays into specific locations in slides. Users can also add transition effects to slides, and add displays to specific locations in slides by pointing to specific placeholders or creating new ones. Preview the slides in a local viewer.">
 <meta property="og:image" content="/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -33,7 +33,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">mirage</a>
+        <a class="navbar-link" href="index.html">powerup</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.3.1</span>
       </span>
     </div>
@@ -41,7 +41,7 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="articles/mirage.html">Get started</a>
+  <a href="articles/powerup.html">Get started</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
@@ -62,7 +62,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/GSK-Biostatistics/powerup/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -75,24 +82,27 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="mirage-">mirage <img src="reference/figures/logo.png" align="right" height="120"><a class="anchor" aria-label="anchor" href="#mirage-"></a>
+<div class="page-header"><h1 id="powerup-">powerup <img src="reference/figures/logo.png" align="right" height="120"><a class="anchor" aria-label="anchor" href="#powerup-"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of mirage is to insert displays into ‘Microsoft PowerPoint’ documents at specific locations within slides.</p>
+<p>The goal of powerup is to insert displays into ‘Microsoft PowerPoint’ documents at specific locations within slides.</p>
 <p>Users can uniquely identify both where and what to add to the PowerPoint document, create new slides, or update old ones.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of {mirage} like so:</p>
+<p>The easiest way to install powerup is to install from CRAN</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"GSK-Biostatistics/mirage"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"powerup"</span><span class="op">)</span></span></code></pre></div>
+<p>Alternative, you can install the development version of {powerup} like so:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"GSK-Biostatistics/powerup"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">mirage</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://gsk-biostatistics.github.io/powerup/" class="external-link">powerup</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># empty presentation style</span></span>
 <span><span class="va">pptx</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pptx_container.html">example_pptx</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -113,7 +123,7 @@
 <span>           <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"Sub-Bullet 3"</span>,<span class="st">"Sub-Bullet 4"</span><span class="op">)</span></span>
 <span>           <span class="op">)</span>, ph <span class="op">=</span> <span class="fu"><a href="reference/ph_templates.html">ph_body_left</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    <span class="fu"><a href="reference/content.html">content</a></span><span class="op">(</span><span class="fu">polish</span><span class="fu">::</span><span class="fu"><a href="https://gsk-biostatistics.github.io/polish/reference/as_file.html" class="external-link">as_file</a></span><span class="op">(</span></span>
-<span>           <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"man/figures/logo.png"</span>, package <span class="op">=</span> <span class="st">"mirage"</span><span class="op">)</span></span>
+<span>           <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"man/figures/logo.png"</span>, package <span class="op">=</span> <span class="st">"powerup"</span><span class="op">)</span></span>
 <span>           <span class="op">)</span>, ph <span class="op">=</span> <span class="fu"><a href="reference/ph_templates.html">ph_body_right</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span></span>
@@ -123,7 +133,15 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="license">
+    <div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/GSK-Biostatistics/powerup/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/GSK-Biostatistics/powerup/issues/" class="external-link">Report a bug</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
@@ -135,14 +153,14 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing mirage</a></li>
+<li><a href="authors.html#citation">Citing powerup</a></li>
 </ul>
 </div>
 
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Ellis Hughes <br><small class="roles"> Author, maintainer </small>   </li>
+<li>Ellis Hughes <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0637-4436" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>Shannon Haughton <br><small class="roles"> Author </small>   </li>
 <li>Romain François <br><small class="roles"> Author </small>   </li>
 <li>GlaxoSmithKline Research &amp; Development Limited <br><small class="roles"> Copyright holder, funder </small>   </li>
@@ -153,8 +171,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://CRAN.R-project.org/package=mirage" class="external-link"><img src="https://www.r-pkg.org/badges/version/mirage" alt="CRAN status"></a></li>
-<li><a href="https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/GSK-Biostatistics/mirage/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/GSK-Biostatistics/powerup/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/GSK-Biostatistics/powerup/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
