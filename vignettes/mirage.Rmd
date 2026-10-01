@@ -1,5 +1,5 @@
 ---
-title: "Mirage"
+title: "powerup"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Mirage}
