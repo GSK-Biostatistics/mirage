@@ -373,7 +373,7 @@ select_ph_tie_breaker <- function(df, tie_breaker = c("largest", "smallest", "le
 
 #' Remove placeholder from a slide
 #'
-#' @inheritParams args_powerup
+#' @param pptx A PowerPoint wrapped in a <pptx_container> object. see [load_pptx()]
 #' @param ph_id placeholder id
 #' @param index index of slide
 #' @param verbose inform about the removed placeholders
@@ -428,7 +428,7 @@ remove_slide_ph <- function(pptx, ph_id, index, error_call = current_env(), verb
 
 #' List the available placeholders in a slide or a given layout
 #'
-#' @inheritParams args_powerup
+#' @param pptx A PowerPoint wrapped in a <pptx_container> object. see [load_pptx()]
 #' @param index Slide index
 #' @param layout the name of the layout in the PowerPoint. Overridden if index is provided
 #' @param units "in" or "cm", what units should be used for the values presented
@@ -679,7 +679,7 @@ get_layout_names <- function(pptx, error_call = current_env()) {
 
 #' Checks the given layout is valid
 #'
-#' @inheritParams args_powerup
+#' @param pptx A PowerPoint wrapped in a <pptx_container> object. see [load_pptx()]
 #' @param layout Type of layout to apply. Must match one of the available layouts or NULL.
 #'
 #' @noRd
