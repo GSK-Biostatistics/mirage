@@ -3,9 +3,13 @@
 \name{args_powerup}
 \alias{args_powerup}
 \title{Documentation anchor for powerup functions}
+\usage{
+N/A - This documentation anchor is not intended to be called directly.
+}
 \arguments{
 \item{pptx}{A PowerPoint wrapped in a <pptx_container> object. see \code{\link[=load_pptx]{load_pptx()}}}
 }
 \description{
 Use \verb{@inheritParams powerup::args_powerup} to document \code{pptx} for your functions
 }
+\keyword{internal}
